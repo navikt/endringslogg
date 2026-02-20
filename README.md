@@ -1,2 +1,0 @@
-# <Navn>
-<beskrivelse>
