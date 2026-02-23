@@ -14,5 +14,6 @@ runs:
         cd frontend
         corepack enable
         yarn config set npmScopes.navikt.npmRegistryServer "https://npm.pkg.github.com"
+        yarn config set npmScopes.navikt.npmPublishRegistry "https://npm.pkg.github.com"
         yarn config set npmScopes.navikt.npmAlwaysAuth true
         yarn config set npmScopes.navikt.npmAuthToken "${{ inputs.npmAuthToken }}"
