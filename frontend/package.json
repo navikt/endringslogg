@@ -32,7 +32,6 @@
     },
     "devDependencies": {
         "@eslint/js": "^10.0.1",
-        "@navikt/aksel": "^8.5.2",
         "@navikt/aksel-icons": "^8.5.2",
         "@navikt/ds-react": "^8.5.2",
         "@types/react": "^19.2.14",
