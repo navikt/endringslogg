@@ -1,0 +1,44 @@
+name: Auto Tag
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "frontend/package.json"
+
+permissions:
+  contents: write
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Create version tag
+        run: |
+          PREV_VERSION=$(git show HEAD~1:frontend/package.json | node -pe "JSON.parse(require('fs').readFileSync(0, 'utf8')).version")
+          VERSION=$(node -p "require('./frontend/package.json').version")
+
+          if [ "$PREV_VERSION" = "$VERSION" ]; then
+            echo "Version unchanged ($VERSION), skipping tag creation"
+            exit 0
+          fi
+
+          TAG="v$VERSION"
+
+          if git rev-parse "$TAG" >/dev/null 2>&1; then
+            echo "Tag $TAG already exists, skipping"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git tag -a "$TAG" -m "Release $TAG"
+          git push origin "$TAG"
