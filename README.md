@@ -4,6 +4,7 @@
 
 Vi bruker GitHub Release-notater som versjonslogg. 
 
+
 ### Release-flyt
 
 1. Oppdater versjon i `frontend/package.json`.
