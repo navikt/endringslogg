@@ -21,10 +21,10 @@
     width: 0.625rem;
     height: 0.625rem;
     border-radius: 50%;
-    background-color: var(--a-border-focus-on-inverted);
+    background-color: var(--ax-bg-accent-moderate-pressed);
 }
 
 .stegviser__steg--selected {
-    background-color: var(--ax-border-focus);
+    background-color: var(--ax-bg-accent-strong-pressed);
     transition: background-color 333ms linear;
 }
