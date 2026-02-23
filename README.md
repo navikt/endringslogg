@@ -2,7 +2,7 @@
 
 ## Publisering
 
-Vi bruker GitHub Release-notater som versjonslogg. 
+Vi bruker GitHub Release-notater som versjonslogg.
 
 ### Release-flyt
 

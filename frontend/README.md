@@ -8,9 +8,10 @@ Komponent for endringslogg for team familie.
 
 Vi bruker GitHub Release-notater som eneste kilde for versjoneringshistorikk.
 
+
 ## Publisering
 
-Publisering skjer manuelt via GitHub Release, mens tag opprettes automatisk når versjon endres.
+Publisering skjer manuelt via GitHub Release. Tag opprettes automatisk når versjon endres i package.json
 
 ### Flyt
 
@@ -28,7 +29,7 @@ Publisering skjer manuelt via GitHub Release, mens tag opprettes automatisk når
 ## Installasjon
 
 ```sh
-npm install @navikt/familie-endringslogg
+npm install @navikt/endringslogg
 # eller hvis du bruker yarn:
-yarn add @navikt/familie-endringslogg
+yarn add @navikt/endringslogg
 ```
