@@ -9,7 +9,15 @@ export default tseslint.config([
   { ignores: ['dist'] },
   eslint.configs.recommended,
   tseslint.configs.recommended,
-  pluginReactHooks.configs['recommended-latest'],
+  {
+    plugins: {
+      'react-hooks': pluginReactHooks,
+    },
+    rules: {
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
+    },
+  },
   configPrettier,
   {
     rules: {
