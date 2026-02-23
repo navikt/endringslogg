@@ -42,7 +42,7 @@ jobs:
 
           if [ "$RELEASE_TAG" != "$EXPECTED_TAG" ]; then
             echo "Release tag ($RELEASE_TAG) matcher ikke package.json-versjon ($PACKAGE_VERSION)."
-            echo "Forventet tag: $EXPECTED_TAG"
+            echo "Disse må være like for at publisering skal fortsette."
             exit 1
           fi
 
