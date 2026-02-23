@@ -51,15 +51,15 @@
 .endringslogg-content {
   overflow: hidden;
   box-shadow: 0 2px 4px 0 rgba(183, 177, 169, 0.5);
-  background-color: var(--a-bg-default);
-    color: var(--a-text-default);
+  background-color: var(--ax-bg-default);
+    color: var(--ax-text-neutral);
   border-radius: 6px;
   max-width: 27rem;
 }
 
 .endringslogg-content:focus {
   outline: none;
-  box-shadow: 0 0 0 3px var(--a-border-focus);
+  box-shadow: 0 0 0 3px var(--ax-border-focus);
 }
 
 .arrow-container::after {
@@ -107,7 +107,7 @@
   height: 0;
   border-left: 0.8125rem solid transparent;
   border-right: 0.8125rem solid transparent;
-  border-bottom: 0.6875rem solid var(--a-border-focus);
+  border-bottom: 0.6875rem solid var(--ax-border-focus);
   opacity: 0.78;
 }
 
@@ -120,12 +120,12 @@
   height: 0;
   border-left: 0.8125rem solid transparent;
   border-right: 0.8125rem solid transparent;
-  border-bottom: 0.6875rem solid var(--a-border-focus);
+  border-bottom: 0.6875rem solid var(--ax-border-focus);
   opacity: 0.78;
 }
 
 .endringslogg-info-nye-notifikasjoner {
-  background-color: var(--a-surface-action);
+  background-color: var(--ax-bg-accent-strong);
   border-radius: 50%;
   display: inline-block;
 }
@@ -144,13 +144,13 @@
   background-color: transparent;
 }
 .endringslogg-dropDown:focus {
-  fill: var(--a-surface-action);
-  box-shadow: 0 0 0 2.5px var(--a-border-focus);
+  fill: var(--ax-bg-accent-strong);
+  box-shadow: 0 0 0 2.5px var(--ax-border-focus);
   border-radius: 2px;
 }
 
 .endringslogg-dropDown:focus #Outline{
-  fill: var(--a-surface-action);
+  fill: var(--ax-bg-accent-strong);
 }
 
 #alarm_svg {
@@ -158,7 +158,7 @@
   width: 2.5rem;
 }
 .endringslogg-dropDown:hover #Outline {
-  fill: var(--a-surface-action);
+  fill: var(--ax-bg-accent-strong);
 }
 .endringslogg-innhold {
   padding: 0 2rem 0 2rem;
@@ -199,7 +199,7 @@
   margin-left: 0.3em;
 }
 .hyperlink-ikon {
-  stroke: var(--a-text-action);
+  stroke: var(--ax-text-accent-subtle);
 }
 .veiledergrupper-navet-tekst,
 .endringslogg_mine-filter {
@@ -216,12 +216,12 @@
 .circle {
   width: 1.2rem;
   height: 1.2rem;
-  background-color: var(--a-red-400);
+  background-color: var(--ax-danger-500);
   border-radius: 50%;
   position: absolute;
 }
 .ringring {
-  border: 3px solid var(--a-red-400);
+  border: 3px solid var(--ax-danger-500);
   -webkit-border-radius: 30px;
   height: 25px;
   width: 25px;
