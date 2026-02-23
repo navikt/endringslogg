@@ -423,14 +423,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@navikt/familie-endringslogg@workspace:.":
+"@navikt/endringslogg@workspace:.":
   version: 0.0.0-use.local
-  resolution: "@navikt/familie-endringslogg@workspace:."
+  resolution: "@navikt/endringslogg@workspace:."
   dependencies:
     "@eslint/js": "npm:^10.0.1"
     "@navikt/aksel-icons": "npm:7.x"
     "@navikt/ds-react": "npm:7.x"
-    "@portabletext/react": "npm:6.0.0"
+    "@portabletext/react": "npm:6.0.2"
     "@types/react": "npm:^19.2.14"
     "@types/react-dom": "npm:^19.2.3"
     classnames: "npm:2.5.1"
@@ -450,19 +450,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@portabletext/react@npm:6.0.0":
-  version: 6.0.0
-  resolution: "@portabletext/react@npm:6.0.0"
+"@portabletext/react@npm:6.0.2":
+  version: 6.0.2
+  resolution: "@portabletext/react@npm:6.0.2"
   dependencies:
-    "@portabletext/toolkit": "npm:^5.0.0"
-    "@portabletext/types": "npm:^4.0.0"
+    "@portabletext/toolkit": "npm:^5.0.1"
+    "@portabletext/types": "npm:^4.0.1"
   peerDependencies:
     react: ^18.2 || ^19
-  checksum: 10/b11d64a7877384591cc40a66c5ebc0a55a094f9f636e1bf481bbc4dd158e841c3c26a257fe502f618d274a7d649feb425f479cd8c7c11308a7099c545909c3c0
+  checksum: 10/55698ae378d0a6893f0991e4c7b480d85e11bb2a8e15b0148c206ded0860bfcf25ae07b22cd0391611aa699e61c7b89f4995604d635c70811d5ffd352e20a605
   languageName: node
   linkType: hard
 
-"@portabletext/toolkit@npm:^5.0.0":
+"@portabletext/toolkit@npm:^5.0.1":
   version: 5.0.1
   resolution: "@portabletext/toolkit@npm:5.0.1"
   dependencies:
@@ -471,7 +471,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@portabletext/types@npm:^4.0.0, @portabletext/types@npm:^4.0.1":
+"@portabletext/types@npm:^4.0.1":
   version: 4.0.1
   resolution: "@portabletext/types@npm:4.0.1"
   checksum: 10/93429e1eb9388bcd52881a491c0e369413e1b99b63ffca6f43e1a2b72a19d307a26a292183ff52f2fdca31bf625f03eacb0188a1ae3a6804e1c753b395a6e9b3
