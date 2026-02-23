@@ -423,9 +423,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@navikt/familie-endringslogg@workspace:.":
+"@navikt/endringslogg@workspace:.":
   version: 0.0.0-use.local
-  resolution: "@navikt/familie-endringslogg@workspace:."
+  resolution: "@navikt/endringslogg@workspace:."
   dependencies:
     "@eslint/js": "npm:^10.0.1"
     "@navikt/aksel-icons": "npm:7.x"
