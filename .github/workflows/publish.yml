@@ -34,6 +34,18 @@ jobs:
         with:
           npmAuthToken: ${{ github.token }}
 
+      - name: Validate release tag matches package version
+        run: |
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+          EXPECTED_TAG="v$PACKAGE_VERSION"
+          RELEASE_TAG="${{ github.event.release.tag_name }}"
+
+          if [ "$RELEASE_TAG" != "$EXPECTED_TAG" ]; then
+            echo "Release tag ($RELEASE_TAG) matcher ikke package.json-versjon ($PACKAGE_VERSION)."
+            echo "Forventet tag: $EXPECTED_TAG"
+            exit 1
+          fi
+
       - name: Install dependencies
         run: yarn install --immutable
 

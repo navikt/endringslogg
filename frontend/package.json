@@ -10,7 +10,8 @@
         "url": "https://github.com/navikt/endringslogg"
     },
     "publishConfig": {
-        "access": "public"
+        "access": "public",
+        "registry": "https://npm.pkg.github.com"
     },
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
