@@ -5,7 +5,7 @@
 }
 
 .collapse-header {
-  background-color: var(--ax-bg-neutral-strong);
+  background-color: var(--a-surface-inverted);;
   color: white;
   padding: 1rem;
   border-top-left-radius: 6px;
@@ -71,7 +71,7 @@
   height: 0;
   border-left: 0.8125rem solid transparent;
   border-right: 0.8125rem solid transparent;
-  border-bottom: 0.6875rem solid var(--ax-bg-neutral-strong);
+  border-bottom: 0.6875rem solid var(--a-surface-inverted);;
 }
 
 .innhold-container {
@@ -95,7 +95,7 @@
   height: 0;
   border-left: 0.8125rem solid transparent;
   border-right: 0.8125rem solid transparent;
-  border-bottom: 0.6875rem solid var(--ax-bg-neutral-strong);
+  border-bottom: 0.6875rem solid var(--a-surface-inverted);;
 }
 
 .arrow-container-left:focus-within::before {
