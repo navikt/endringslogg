@@ -1,0 +1,18 @@
+name: Setup yarnrc.yml
+description: Configure Yarn to resolve @navikt packages from GitHub Packages with auth.
+
+inputs:
+  npmAuthToken:
+    description: Token with packages:read permission for the navikt organization.
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: |
+        cd frontend
+        corepack enable
+        yarn config set npmScopes.navikt.npmRegistryServer "https://npm.pkg.github.com"
+        yarn config set npmScopes.navikt.npmAlwaysAuth true
+        yarn config set npmScopes.navikt.npmAuthToken "${{ inputs.npmAuthToken }}"

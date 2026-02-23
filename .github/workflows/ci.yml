@@ -35,13 +35,13 @@ jobs:
           cache: yarn
           cache-dependency-path: frontend/yarn.lock
 
-      - name: Enable Corepack
-        run: corepack enable
+      - name: Setup yarnrc
+        uses: ./.github/actions/setup-yarnrc
+        with:
+          npmAuthToken: ${{ github.token }}
 
       - name: Install dependencies
         run: yarn install --immutable
-        env:
-          NODE_AUTH_TOKEN: ${{ github.token }}
 
       - name: Lint
         run: yarn lint
