@@ -15,7 +15,7 @@ Publisering skjer manuelt via GitHub Release, mens tag opprettes automatisk når
 ### Flyt
 
 1. Oppdater `frontend/package.json` med ny versjon.
-2. Merge til `master`.
+2. Merge til `main`.
 3. Workflowen `Auto Tag` oppretter automatisk tag `v<versjon>` når versjonen faktisk har endret seg.
 4. Opprett/publiser en GitHub Release fra taggen med gode release-notater.
 5. Workflowen `Publish` kjører ved `release.published` og publiserer pakken.
