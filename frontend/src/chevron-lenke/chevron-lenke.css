@@ -22,15 +22,15 @@
 }
 
 .chevron-lenke__tekst {
-  color: var(--a-surface-action);
+  color: var(--ax-bg-accent-strong);
   padding-bottom: 0.125rem;
   border-bottom: 1px solid transparent;
 }
 
 .chevron-lenke__tekst:hover {
-  border-bottom: 1px solid var(--a-text-action);
+  border-bottom: 1px solid var(--ax-text-accent-subtle);
 }
 
 .chevron-lenke__tekst:focus {
-  border: 2px solid var(--a-surface-action);
+  border: 2px solid var(--ax-bg-accent-strong);
 }
