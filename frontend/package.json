@@ -1,13 +1,13 @@
 {
-    "version": "14.0.6",
-    "name": "@navikt/familie-endringslogg",
+    "version": "0.0.1",
+    "name": "@navikt/endringslogg",
     "author": "NAV",
     "type": "module",
-    "homepage": "https://github.com/navikt/familie-felles-frontend#readme",
+    "homepage": "https://github.com/navikt/endringslogg#readme",
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/navikt/familie-felles-frontend"
+        "url": "https://github.com/navikt/endringslogg"
     },
     "publishConfig": {
         "access": "public"
