@@ -8,6 +8,10 @@ on:
       - "sanity/**"
       - ".github/workflows/sanity-deploy.yml"
 
+permissions:
+  contents: read
+  packages: read
+
 jobs:
   sanity-deploy:
     runs-on: ubuntu-latest
@@ -22,6 +26,11 @@ jobs:
           node-version-file: .nvmrc
           cache: yarn
           cache-dependency-path: yarn.lock
+
+      - name: Setup yarnrc
+        uses: ./.github/actions/setup-yarnrc
+        with:
+          npmAuthToken: ${{ github.token }}
 
       - name: Install dependencies
         run: yarn install --immutable
