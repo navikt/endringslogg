@@ -1,0 +1,35 @@
+name: Build and deploy Sanity
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "sanity/**"
+      - ".github/workflows/sanity-deploy.yml"
+
+jobs:
+  sanity-deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: sanity
+    name: Deploy
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+          cache: yarn
+          cache-dependency-path: sanity/yarn.lock
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Deploy sanity
+        env:
+          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_DEPLOY_TOKEN }}
+        run: yarn deploy
