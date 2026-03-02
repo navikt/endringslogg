@@ -51,6 +51,7 @@ fun Application.main() {
         allowHost("navikt.github.io", listOf("https"))
         allowHost("localhost:8000", listOf("http"))
         allowHost("localhost:3000", listOf("http"))
+        allowHost("localhost:9000", listOf("http"))
 
         allowMethod(HttpMethod.Options)
         allowMethod(HttpMethod.Get)
