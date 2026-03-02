@@ -9,3 +9,9 @@ dist/
 !**/.yarn/releases
 !**/.yarn/sdks
 !**/.yarn/versions
+
+# Gradle
+.gradle/
+build/
+!**/src/**/build
+*.iml
