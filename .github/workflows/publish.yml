@@ -13,10 +13,6 @@ jobs:
   publish:
     if: github.event.release.target_commitish == 'main'
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: frontend
-
     steps:
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
@@ -35,6 +31,7 @@ jobs:
           npmAuthToken: ${{ github.token }}
 
       - name: Validate release tag matches package version
+        working-directory: frontend
         run: |
           PACKAGE_VERSION=$(node -p "require('./package.json').version")
           EXPECTED_TAG="v$PACKAGE_VERSION"
@@ -50,9 +47,11 @@ jobs:
         run: yarn install --immutable
 
       - name: Build
+        working-directory: frontend
         run: yarn build
 
       - name: Publish to Github Packages
+        working-directory: frontend
         run: yarn npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ github.token }}
