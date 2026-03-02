@@ -16,7 +16,7 @@ Se [frontend/README.md](frontend/README.md) for installasjon, publisering og ver
 
 ## Sanity Studio
 
-Innhold redigeres på [familie-endringslogg.sanity.studio](https://familie-endringslogg.sanity.studio/production/desk).
+Innhold redigeres på [k9-endringslogg.sanity.studio](https://k9-endringslogg.sanity.studio/production/desk).
 Deployes automatisk ved push til `main` (endringer i `sanity/`).
 
 ## Backend

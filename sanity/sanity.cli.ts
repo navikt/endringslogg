@@ -7,7 +7,5 @@ export default defineCliConfig({
         projectId: PROJECT_ID,
         dataset: DATASET
     },
-    deployment: {
-        appId: 'fefd0391c35372f453ce004d',
-    },
+    studioHost: 'k9-endringslogg',
 });
