@@ -38,5 +38,5 @@ jobs:
       - name: Deploy sanity
         working-directory: sanity
         env:
-          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_DEPLOY_TOKEN }}
+          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
         run: yarn deploy
