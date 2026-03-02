@@ -16,13 +16,13 @@ plugins {
     id("org.cyclonedx.bom") version "2.3.1"
 }
 
-group = "no.nav.familie"
+group = "no.nav.k9.endringslogg"
 version = "0.0.1"
 java.sourceCompatibility = JavaVersion.VERSION_21
 java.targetCompatibility = JavaVersion.VERSION_21
 
 application {
-    mainClass.set("no.nav.familie.ApplicationKt")
+    mainClass.set("no.nav.k9.endringslogg.ApplicationKt")
 }
 
 repositories {
@@ -103,7 +103,7 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
 tasks{
     shadowJar {
         manifest {
-            attributes(Pair("Main-Class", "no.nav.familie.ApplicationKt"))
+            attributes(Pair("Main-Class", "no.nav.k9.endringslogg.ApplicationKt"))
         }
         mergeServiceFiles()
     }

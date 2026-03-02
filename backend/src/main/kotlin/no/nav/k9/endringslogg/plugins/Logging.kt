@@ -1,4 +1,4 @@
-package no.nav.familie.plugins
+package no.nav.k9.endringslogg.plugins
 
 import io.ktor.server.application.Application
 import io.ktor.server.application.install

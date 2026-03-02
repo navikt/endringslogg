@@ -20,11 +20,11 @@ import kotlinx.serialization.json.int
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
-import no.nav.familie.Modal
-import no.nav.familie.Slide
-import no.nav.familie.SlideImage
-import no.nav.familie.SlideImageDl
-import no.nav.familie.SlideImageJson
+import no.nav.k9.endringslogg.Modal
+import no.nav.k9.endringslogg.Slide
+import no.nav.k9.endringslogg.SlideImage
+import no.nav.k9.endringslogg.SlideImageDl
+import no.nav.k9.endringslogg.SlideImageJson
 import java.util.UUID
 
 @ExperimentalSerializationApi

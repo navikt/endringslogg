@@ -1,4 +1,4 @@
-package no.nav.familie
+package no.nav.k9.endringslogg
 
 import SanityClient
 import io.ktor.http.HttpHeaders
@@ -13,19 +13,19 @@ import io.ktor.server.netty.Netty
 import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.server.plugins.cors.routing.CORS
 import kotlinx.serialization.json.Json
-import no.nav.familie.env.DB_DATABASE
-import no.nav.familie.env.DB_HOST
-import no.nav.familie.env.DB_PASSWORD
-import no.nav.familie.env.DB_PORT
-import no.nav.familie.env.DB_USERNAME
-import no.nav.familie.env.SANITY_PROJECT_ID
-import no.nav.familie.plugins.configureLogging
-import no.nav.familie.plugins.configureRouting
-import no.nav.familie.plugins.errorHandling
+import no.nav.k9.endringslogg.env.DB_DATABASE
+import no.nav.k9.endringslogg.env.DB_HOST
+import no.nav.k9.endringslogg.env.DB_PASSWORD
+import no.nav.k9.endringslogg.env.DB_PORT
+import no.nav.k9.endringslogg.env.DB_USERNAME
+import no.nav.k9.endringslogg.env.SANITY_PROJECT_ID
+import no.nav.k9.endringslogg.plugins.configureLogging
+import no.nav.k9.endringslogg.plugins.configureRouting
+import no.nav.k9.endringslogg.plugins.errorHandling
 import org.flywaydb.core.Flyway
 import org.slf4j.LoggerFactory
 
-private val logger = LoggerFactory.getLogger("no.nav.familie.Application")
+private val logger = LoggerFactory.getLogger("no.nav.k9.endringslogg.Application")
 
 fun Application.main() {
     install(ContentNegotiation) {
@@ -65,7 +65,7 @@ fun main() {
     logger.info("Kjører flyway")
     val flyway: Flyway =
         Flyway.configure().dataSource(
-            "jdbc:postgresql://$DB_HOST:$DB_PORT/$DB_DATABASE?reWriteBatchedInserts=true?sslmode=require",
+            "jdbc:postgresql://$DB_HOST:$DB_PORT/$DB_DATABASE?reWriteBatchedInserts=true&sslmode=require",
             DB_USERNAME,
             DB_PASSWORD,
         ).load()

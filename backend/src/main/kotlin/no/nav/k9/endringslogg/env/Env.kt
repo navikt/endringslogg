@@ -1,4 +1,4 @@
-package no.nav.familie.env
+package no.nav.k9.endringslogg.env
 
 val DB_USERNAME: String = System.getenv("db_USERNAME")
 val DB_PASSWORD: String = System.getenv("db_PASSWORD")

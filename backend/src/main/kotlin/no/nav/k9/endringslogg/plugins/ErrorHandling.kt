@@ -1,4 +1,4 @@
-package no.nav.familie.plugins
+package no.nav.k9.endringslogg.plugins
 
 import io.ktor.client.plugins.ResponseException
 import io.ktor.http.HttpStatusCode

@@ -17,10 +17,10 @@ import io.ktor.client.statement.HttpResponse
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.json.Json
-import no.nav.familie.EndringJson
-import no.nav.familie.SlideImageDl
-import no.nav.familie.SlideImageJson
-import no.nav.familie.SubscribedApp
+import no.nav.k9.endringslogg.EndringJson
+import no.nav.k9.endringslogg.SlideImageDl
+import no.nav.k9.endringslogg.SlideImageJson
+import no.nav.k9.endringslogg.SubscribedApp
 import okhttp3.internal.http2.StreamResetException
 import org.slf4j.LoggerFactory
 import java.net.URI

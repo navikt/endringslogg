@@ -1,12 +1,12 @@
-package no.nav.familie
+package no.nav.k9.endringslogg
 
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
-import no.nav.familie.env.DB_DATABASE
-import no.nav.familie.env.DB_HOST
-import no.nav.familie.env.DB_PASSWORD
-import no.nav.familie.env.DB_PORT
-import no.nav.familie.env.DB_USERNAME
+import no.nav.k9.endringslogg.env.DB_DATABASE
+import no.nav.k9.endringslogg.env.DB_HOST
+import no.nav.k9.endringslogg.env.DB_PASSWORD
+import no.nav.k9.endringslogg.env.DB_PORT
+import no.nav.k9.endringslogg.env.DB_USERNAME
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.Table
 import org.jetbrains.exposed.sql.batchInsert
@@ -70,7 +70,7 @@ private fun createHikariDataSource(url: String) =
     )
 
 fun connectToDatabase() {
-    val connectUrl: String = "jdbc:postgresql://$DB_HOST:$DB_PORT/$DB_DATABASE?reWriteBatchedInserts=true?sslmode=require"
+    val connectUrl: String = "jdbc:postgresql://$DB_HOST:$DB_PORT/$DB_DATABASE?reWriteBatchedInserts=true&sslmode=require"
 
     Database.connect(createHikariDataSource(connectUrl))
 }

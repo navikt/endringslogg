@@ -1,4 +1,4 @@
-package no.nav.familie
+package no.nav.k9.endringslogg
 
 import ModalSerializer
 import SlideSerializer
@@ -8,7 +8,7 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.jsonObject
-import no.nav.familie.env.SANITY_PROJECT_ID
+import no.nav.k9.endringslogg.env.SANITY_PROJECT_ID
 
 @Serializable
 data class EndringJson(val result: List<Endring>)

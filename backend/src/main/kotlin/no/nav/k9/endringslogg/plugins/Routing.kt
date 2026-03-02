@@ -1,4 +1,4 @@
-package no.nav.familie.plugins
+package no.nav.k9.endringslogg.plugins
 
 import Err
 import Ok
@@ -16,21 +16,21 @@ import io.ktor.util.encodeBase64
 import io.ktor.util.pipeline.PipelineContext
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.encodeToJsonElement
-import no.nav.familie.BildeData
-import no.nav.familie.BrukerData
-import no.nav.familie.DocumentId
-import no.nav.familie.Endring
-import no.nav.familie.SeenForcedStatus
-import no.nav.familie.SeenStatus
-import no.nav.familie.SessionDuration
-import no.nav.familie.env.erIDev
-import no.nav.familie.getSeenEntriesForUser
-import no.nav.familie.getSeenForcedEntriesForUser
-import no.nav.familie.insertSeenEntries
-import no.nav.familie.insertSeenForcedEntries
-import no.nav.familie.insertSessionDuration
-import no.nav.familie.setLinkClicked
-import no.nav.familie.setModalOpen
+import no.nav.k9.endringslogg.BildeData
+import no.nav.k9.endringslogg.BrukerData
+import no.nav.k9.endringslogg.DocumentId
+import no.nav.k9.endringslogg.Endring
+import no.nav.k9.endringslogg.SeenForcedStatus
+import no.nav.k9.endringslogg.SeenStatus
+import no.nav.k9.endringslogg.SessionDuration
+import no.nav.k9.endringslogg.env.erIDev
+import no.nav.k9.endringslogg.getSeenEntriesForUser
+import no.nav.k9.endringslogg.getSeenForcedEntriesForUser
+import no.nav.k9.endringslogg.insertSeenEntries
+import no.nav.k9.endringslogg.insertSeenForcedEntries
+import no.nav.k9.endringslogg.insertSessionDuration
+import no.nav.k9.endringslogg.setLinkClicked
+import no.nav.k9.endringslogg.setModalOpen
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import java.net.URLEncoder
@@ -38,7 +38,7 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.UUID
 
-val logger: Logger = LoggerFactory.getLogger("no.nav.familie.routing")
+val logger: Logger = LoggerFactory.getLogger("no.nav.k9.endringslogg.routing")
 
 fun Application.configureRouting(client: SanityClient) {
     routing {
