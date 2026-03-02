@@ -1,0 +1,52 @@
+name: Build-Deploy backend dev
+on: [workflow_dispatch]
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  build:
+    name: Build and push package
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - name: Set up JDK 21
+        uses: actions/setup-java@c1e323688fd81a25caa38c78aa6df2d33d3e20d9 # v4.8.0
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+          cache: 'gradle'
+          cache-dependency-path: backend/build.gradle.kts
+      - name: Bygg med Gradle
+        env:
+          GITHUB_USERNAME: x-access-token
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: ./gradlew shadowJar
+      - name: Generer SBOM
+        run: ./gradlew generateSBOM
+      - name: Push docker image to GAR and sign image
+        uses: nais/docker-build-push@ae613eff6f44f0323476eda1c3994a7c518761c3 # v0
+        id: docker-build-push
+        with:
+          team: k9saksbehandling
+          docker_context: backend
+          byosbom: backend/build/reports/bom.json
+    outputs:
+      image: ${{ steps.docker-build-push.outputs.image }}
+  deploy:
+    name: Deploy to dev-gcp
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - name: Deploy til dev-gcp
+        uses: nais/deploy/actions/deploy@fa754451577294aae42872a69b888b3470478ec1 # v2
+        env:
+          CLUSTER: dev-gcp
+          RESOURCE: backend/.nais/app-dev.yaml
+          IMAGE: ${{ needs.build.outputs.image }}

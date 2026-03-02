@@ -17,10 +17,7 @@ export const EndringsloggLink = (props: { linkText: string; link: string }) => {
         <Link className={'endringslogg-link'} target="_blank" href={props.link}>
             {props.linkText ? props.linkText : props.link}
             <ExternalLinkIcon
-                fr="mask"
                 className={'linkikon'}
-                onResize={undefined}
-                onResizeCapture={undefined}
             />
         </Link>
     );

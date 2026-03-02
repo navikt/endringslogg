@@ -1,0 +1,45 @@
+apiVersion: "nais.io/v1alpha1"
+kind: "Application"
+metadata:
+  name: endringslogg
+  namespace: k9saksbehandling
+  labels:
+    team: k9saksbehandling
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+spec:
+  image: {{ image }}
+  prometheus:
+    enabled: false
+  gcp:
+    sqlInstances:
+      - type: POSTGRES_14
+        tier: db-custom-1-3840
+        databases:
+          - envVarPrefix: db
+            name: endringslogg
+  observability:
+    autoInstrumentation:
+      enabled: true
+      runtime: "java"
+    logging:
+      destinations:
+        - id: elastic
+        - id: loki
+  ingresses:
+    - https://endringslogg.intern.nav.no
+  replicas:
+    min: 1
+    max: 2
+  accessPolicy:
+    inbound:
+      rules:
+        - application: k9-sak-web
+        - application: k9-los-web
+        - application: saksbehandling
+          namespace: aap
+    outbound:
+      external:
+        - host: cdn.sanity.io
+        - host: avzz8jwq.api.sanity.io

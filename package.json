@@ -1,0 +1,8 @@
+{
+    "private": true,
+    "workspaces": [
+        "frontend",
+        "sanity"
+    ],
+    "packageManager": "yarn@4.12.0"
+}
