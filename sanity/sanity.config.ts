@@ -16,7 +16,7 @@ const auth = {
             logo: '/static/navlogo.png',
         },
     ],
-    loginMethod: 'dual',
+    loginMethod: 'dual' as const,
 };
 
 export default defineConfig({
