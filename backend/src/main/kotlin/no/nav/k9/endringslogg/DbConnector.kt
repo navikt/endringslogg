@@ -2,8 +2,8 @@ package no.nav.k9.endringslogg
 
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
+import no.nav.k9.endringslogg.env.DB_JDBC_URL
 import no.nav.k9.endringslogg.env.DB_PASSWORD
-import no.nav.k9.endringslogg.env.DB_URL
 import no.nav.k9.endringslogg.env.DB_USERNAME
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.Table
@@ -68,7 +68,7 @@ private fun createHikariDataSource(url: String) =
     )
 
 fun connectToDatabase() {
-    Database.connect(createHikariDataSource("jdbc:$DB_URL"))
+    Database.connect(createHikariDataSource(DB_JDBC_URL))
 }
 
 fun getSeenEntriesForUser(userId: String): List<UUID> =

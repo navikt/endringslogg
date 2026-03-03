@@ -13,8 +13,8 @@ import io.ktor.server.netty.Netty
 import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.server.plugins.cors.routing.CORS
 import kotlinx.serialization.json.Json
+import no.nav.k9.endringslogg.env.DB_JDBC_URL
 import no.nav.k9.endringslogg.env.DB_PASSWORD
-import no.nav.k9.endringslogg.env.DB_URL
 import no.nav.k9.endringslogg.env.DB_USERNAME
 import no.nav.k9.endringslogg.env.SANITY_PROJECT_ID
 import no.nav.k9.endringslogg.plugins.configureLogging
@@ -63,7 +63,7 @@ fun main() {
     logger.info("Kjører flyway")
     val flyway: Flyway =
         Flyway.configure().dataSource(
-            "jdbc:$DB_URL",
+            DB_JDBC_URL,
             DB_USERNAME,
             DB_PASSWORD,
         ).load()
