@@ -2,10 +2,8 @@ package no.nav.k9.endringslogg
 
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
-import no.nav.k9.endringslogg.env.DB_DATABASE
-import no.nav.k9.endringslogg.env.DB_HOST
 import no.nav.k9.endringslogg.env.DB_PASSWORD
-import no.nav.k9.endringslogg.env.DB_PORT
+import no.nav.k9.endringslogg.env.DB_URL
 import no.nav.k9.endringslogg.env.DB_USERNAME
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.Table
@@ -70,9 +68,7 @@ private fun createHikariDataSource(url: String) =
     )
 
 fun connectToDatabase() {
-    val connectUrl: String = "jdbc:postgresql://$DB_HOST:$DB_PORT/$DB_DATABASE?reWriteBatchedInserts=true&sslmode=require"
-
-    Database.connect(createHikariDataSource(connectUrl))
+    Database.connect(createHikariDataSource("jdbc:$DB_URL"))
 }
 
 fun getSeenEntriesForUser(userId: String): List<UUID> =
