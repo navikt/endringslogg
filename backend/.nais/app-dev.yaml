@@ -15,6 +15,7 @@ spec:
   gcp:
     sqlInstances:
       - type: POSTGRES_15
+        cascadingDelete: true
         tier: db-f1-micro
         databases:
           - envVarPrefix: db
