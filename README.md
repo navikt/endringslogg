@@ -28,24 +28,6 @@ Lagrer hvilke endringer saksbehandlere har lest i en database.
 
 For at en frontend-applikasjon skal få tilgang må URL-en den kjører på legges inn i CORS-filteret i `backend/src/main/kotlin/no/nav/familie/Application.kt`.
 
-### Kjøre lokalt
-
-```sh
-cd backend
-docker-compose up
-```
-
-Legg inn disse miljøvariablene før du kjører `Application.kt`:
-
-```
-db_USERNAME=postgres
-db_PASSWORD=test
-db_HOST=localhost
-db_PORT=9876
-db_DATABASE=familie-endringslogg
-NAIS_CLUSTER_NAME=dev-gcp
-```
-
 ## Ny saksbehandlingsløsning?
 
 1. Legg til ny løsning med app-id i `sanity/schemas/schema.ts`
@@ -54,4 +36,4 @@ NAIS_CLUSTER_NAME=dev-gcp
 
 ## Henvendelser
 
-Interne henvendelser kan sendes via Slack i kanalen #k9saksbehandling.
+Interne henvendelser kan sendes via Slack i kanalen #team-sykdom-i-familien.
