@@ -14,8 +14,6 @@ import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.server.plugins.cors.routing.CORS
 import kotlinx.serialization.json.Json
 import no.nav.k9.endringslogg.env.DB_JDBC_URL
-import no.nav.k9.endringslogg.env.DB_PASSWORD
-import no.nav.k9.endringslogg.env.DB_USERNAME
 import no.nav.k9.endringslogg.env.SANITY_PROJECT_ID
 import no.nav.k9.endringslogg.plugins.configureLogging
 import no.nav.k9.endringslogg.plugins.configureRouting
@@ -64,8 +62,8 @@ fun main() {
     val flyway: Flyway =
         Flyway.configure().dataSource(
             DB_JDBC_URL,
-            DB_USERNAME,
-            DB_PASSWORD,
+            null,
+            null,
         ).load()
     flyway.migrate()
 

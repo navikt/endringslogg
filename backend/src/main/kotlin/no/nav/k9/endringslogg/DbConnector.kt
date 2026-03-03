@@ -3,8 +3,6 @@ package no.nav.k9.endringslogg
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import no.nav.k9.endringslogg.env.DB_JDBC_URL
-import no.nav.k9.endringslogg.env.DB_PASSWORD
-import no.nav.k9.endringslogg.env.DB_USERNAME
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.Table
 import org.jetbrains.exposed.sql.batchInsert
@@ -56,8 +54,6 @@ private fun createHikariDataSource(url: String) =
         HikariConfig().apply {
             driverClassName = "org.postgresql.Driver"
             jdbcUrl = url
-            username = DB_USERNAME
-            password = DB_PASSWORD
             maximumPoolSize = 5
             maxLifetime = 900_000
             // isAutoCommit and transactionIsolation are set to sync with the default settings used by Exposed
