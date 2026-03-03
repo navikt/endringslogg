@@ -12,14 +12,6 @@ spec:
   image: {{ image }}
   prometheus:
     enabled: false
-  gcp:
-    sqlInstances:
-      - type: POSTGRES_14
-        cascadingDelete: true
-        tier: db-custom-1-3840
-        databases:
-          - envVarPrefix: db
-            name: endringslogg
   observability:
     autoInstrumentation:
       enabled: true
