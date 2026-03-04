@@ -9,6 +9,7 @@ import io.ktor.server.application.ApplicationCall
 import io.ktor.server.application.call
 import io.ktor.server.request.receive
 import io.ktor.server.response.respond
+import io.ktor.server.routing.get
 import io.ktor.server.routing.patch
 import io.ktor.server.routing.post
 import io.ktor.server.routing.routing
@@ -42,6 +43,12 @@ val logger: Logger = LoggerFactory.getLogger("no.nav.k9.endringslogg.routing")
 
 fun Application.configureRouting(client: SanityClient) {
     routing {
+        get("/isAlive") {
+            call.respond(HttpStatusCode.OK)
+        }
+        get("/isReady") {
+            call.respond(HttpStatusCode.OK)
+        }
         post("/endringslogg") { // TODO: Deprecated
             fetchEndringslogger(client, withImages = true)
         }
