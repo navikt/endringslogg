@@ -34,6 +34,11 @@ For at en frontend-applikasjon skal få tilgang må URL-en den kjører på legge
 2. Legg inn nye URL-er i CORS-filteret i `backend/src/main/kotlin/no/nav/familie/Application.kt`
 3. Legg til nye personer i Sanity Studio som får tilgang til å redigere innhold
 
+## Migrere fra familie-endringslogg?
+
+1. Erstatt `@navikt/familie-endringslogg` med `@navikt/endringslogg` 
+2. Informer de som legger inn innlegg i Sanity om å bruke [k9-endringslogg.sanity.studio](https://k9-endringslogg.sanity.studio/production/desk). 
+
 ## Henvendelser
 
 Interne henvendelser kan sendes via Slack i kanalen #team-sykdom-i-familien.
