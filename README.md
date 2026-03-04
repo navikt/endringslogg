@@ -17,7 +17,7 @@ Se [frontend/README.md](frontend/README.md) for installasjon, publisering og ver
 ## Sanity Studio
 
 Innhold redigeres på [k9-endringslogg.sanity.studio](https://k9-endringslogg.sanity.studio/production/desk).
-Deployes automatisk ved push til `main` (endringer i `sanity/`).
+Logg inn med SSO og organization slug `navikt`.
 
 ## Backend
 
