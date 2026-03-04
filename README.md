@@ -38,13 +38,9 @@ For at en frontend-applikasjon skal få tilgang må URL-en den kjører på legge
 
 1. Erstatt `@navikt/familie-endringslogg` med `@navikt/endringslogg` 
 2. Informer de som legger inn innlegg i Sanity om å bruke [k9-endringslogg.sanity.studio](https://k9-endringslogg.sanity.studio/production/desk).
-3. Les det som står under her ;)
-
-NB! 
-Ettersom vi har fersk database er det ikke lagret hvilke innlegg saksbehandler har sett før migrering.
-1. De vil få notifikasjon på endringslogg-ikonet for alle innleggene som finnes, men det forsvinner hvis man åpner og lukker innholdet i endringsloggen. 
-2. Dersom dere har brukt tvungen modal på tidligere innlegg kan det føre til at disse popper opp for saksbehandler første gangen de er innom applikasjonen.
-
+3. Ettersom vi har fersk database er det ikke lagret hvilke innlegg saksbehandler har sett før migrering.
+   - Dersom dere har brukt tvungen modal på tidligere innlegg kan det føre til at disse popper opp for saksbehandler første gangen de er innom applikasjonen, derfor anbefales det å toggle av tvungen         visning på gamle innlegg.
+   - De vil også få notifikasjon på endringslogg-ikonet for alle innleggene som finnes, men det forsvinner hvis man åpner og lukker innholdet i endringsloggen. 
 
 ## Henvendelser
 
