@@ -12,7 +12,7 @@
     ],
     "dependencies": {
         "@sanity/cli": "^5.12.0",
-        "@sanity/ui": "3.1.11",
+        "@sanity/ui": "3.1.13",
         "@sanity/vision": "^5.12.0",
         "react": "19.2.3",
         "react-dom": "19.2.3",
