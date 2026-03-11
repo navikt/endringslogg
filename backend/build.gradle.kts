@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 val ktor_version = "2.3.13"
 val kotlin_version="2.2.0"
-val logback_version="1.5.18"
+val logback_version="1.5.32"
 val logstash_encoder_version="8.1"
 val exposed_version="0.61.0"
 val hikaricp_version = "7.0.1"
