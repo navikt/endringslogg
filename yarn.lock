@@ -6902,7 +6902,7 @@ __metadata:
     "@types/react": "npm:19.2.3"
     react: "npm:19.2.3"
     react-dom: "npm:19.2.3"
-    react-is: "npm:19.2.3"
+    react-is: "npm:19.2.4"
     sanity: "npm:^5.12.0"
     styled-components: "npm:6.1.18"
     typescript: "npm:5.9.3"
@@ -10580,10 +10580,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-is@npm:19.2.3":
-  version: 19.2.3
-  resolution: "react-is@npm:19.2.3"
-  checksum: 10/547ac397308204742447b5e4cf556cf09aa97f4cc1c95c4a28e4b2e73a7efab03e59d7b89b4a01f67bf9bf0ca87348a7f0e88bc87c0af6be458aaac1dec5e132
+"react-is@npm:19.2.4, react-is@npm:^19.2.4":
+  version: 19.2.4
+  resolution: "react-is@npm:19.2.4"
+  checksum: 10/3360fc50a38c23299c5003a709949f2439b2901e77962eea78d892f526f710d05a7777b600b302f853583d1861979b00d7a0a071c89c6562eac5740ac29b9665
   languageName: node
   linkType: hard
 
@@ -10591,13 +10591,6 @@ __metadata:
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: 10/5aa564a1cde7d391ac980bedee21202fc90bdea3b399952117f54fb71a932af1e5902020144fb354b4690b2414a0c7aafe798eb617b76a3d441d956db7726fdf
-  languageName: node
-  linkType: hard
-
-"react-is@npm:^19.2.4":
-  version: 19.2.4
-  resolution: "react-is@npm:19.2.4"
-  checksum: 10/3360fc50a38c23299c5003a709949f2439b2901e77962eea78d892f526f710d05a7777b600b302f853583d1861979b00d7a0a071c89c6562eac5740ac29b9665
   languageName: node
   linkType: hard
 
