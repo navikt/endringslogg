@@ -1,10 +1,11 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.gradle.api.tasks.testing.Test
 
 val ktor_version = "2.3.13"
 val kotlin_version="2.3.20"
 val logback_version="1.5.18"
 val logstash_encoder_version="9.0"
-val exposed_version="0.61.0"
+val exposed_version="1.2.0"
 val hikaricp_version = "7.0.2"
 val ktlint by configurations.creating
 
@@ -12,7 +13,7 @@ plugins {
     application
     kotlin("jvm") version "2.3.20"
     kotlin("plugin.serialization") version "2.2.0"
-    id("com.github.johnrengelman.shadow") version "8.1.1"
+    id("com.gradleup.shadow") version "9.4.1"
     id("org.cyclonedx.bom") version "3.2.4"
 }
 
@@ -69,7 +70,7 @@ dependencies {
 
 val inputFiles = project.fileTree(mapOf("dir" to "src", "include" to "**/*.kt"))
 
-val ktlintCheck by tasks.creating(JavaExec::class) {
+val ktlintCheck by tasks.registering(JavaExec::class) {
     inputs.files(inputFiles)
     // outputs.dir(outputDir)
 
@@ -79,7 +80,7 @@ val ktlintCheck by tasks.creating(JavaExec::class) {
     args = listOf("src/**/*.kt")
 }
 
-val ktlintFormat by tasks.creating(JavaExec::class) {
+val ktlintFormat by tasks.registering(JavaExec::class) {
     inputs.files(inputFiles)
     // outputs.dir(outputDir)
 
@@ -107,6 +108,14 @@ tasks{
         }
         mergeServiceFiles()
     }
+}
+
+tasks.withType<Test>().configureEach {
+    failOnNoDiscoveredTests.set(false)
+}
+
+tasks.named("cyclonedxDirectBom") {
+    (this as org.cyclonedx.gradle.CyclonedxDirectTask).includeConfigs.set(listOf("runtimeClasspath", "compileClasspath"))
 }
 
 tasks.register("generateSBOM") {
