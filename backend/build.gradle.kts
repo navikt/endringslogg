@@ -5,7 +5,7 @@ val kotlin_version="2.2.0"
 val logback_version="1.5.18"
 val logstash_encoder_version="8.1"
 val exposed_version="0.61.0"
-val hikaricp_version = "7.0.1"
+val hikaricp_version = "7.0.2"
 val ktlint by configurations.creating
 
 plugins {
