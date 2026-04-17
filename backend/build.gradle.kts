@@ -4,7 +4,7 @@ val ktor_version = "2.3.13"
 val kotlin_version="2.3.20"
 val logback_version="1.5.18"
 val logstash_encoder_version="9.0"
-val exposed_version="1.2.0"
+val exposed_version="0.61.0"
 val hikaricp_version = "7.0.2"
 val ktlint by configurations.creating
 
@@ -107,10 +107,6 @@ tasks{
         }
         mergeServiceFiles()
     }
-}
-
-tasks.cyclonedxBom {
-    setIncludeConfigs(listOf("runtimeClasspath", "compileClasspath"))
 }
 
 tasks.register("generateSBOM") {
