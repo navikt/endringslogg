@@ -1,5 +1,4 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.gradle.api.tasks.testing.Test
 
 val ktor_version = "2.3.13"
 val kotlin_version="2.3.20"
@@ -114,8 +113,8 @@ tasks.withType<Test>().configureEach {
     failOnNoDiscoveredTests.set(false)
 }
 
-tasks.named("cyclonedxDirectBom") {
-    (this as org.cyclonedx.gradle.CyclonedxDirectTask).includeConfigs.set(listOf("runtimeClasspath", "compileClasspath"))
+tasks.named<org.cyclonedx.gradle.CyclonedxDirectTask>("cyclonedxDirectBom") {
+    includeConfigs.set(listOf("runtimeClasspath", "compileClasspath"))
 }
 
 tasks.register("generateSBOM") {
