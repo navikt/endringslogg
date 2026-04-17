@@ -120,6 +120,9 @@ tasks.named<org.cyclonedx.gradle.CyclonedxDirectTask>("cyclonedxDirectBom") {
 tasks.register("generateSBOM") {
     dependsOn("cyclonedxBom")
     doLast {
+        val src = layout.buildDirectory.file("reports/cyclonedx/bom.json").get().asFile
+        val dest = layout.buildDirectory.file("reports/bom.json").get().asFile
+        src.copyTo(dest, overwrite = true)
         println("SBOM generated at build/reports/bom.json")
     }
 }
