@@ -62,8 +62,8 @@ fun main() {
     val flyway: Flyway =
         Flyway.configure().dataSource(
             DB_JDBC_URL,
-            null,
-            null,
+            "",
+            "",
         ).load()
     flyway.migrate()
 
