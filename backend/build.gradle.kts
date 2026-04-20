@@ -11,7 +11,7 @@ val ktlint by configurations.creating
 plugins {
     application
     kotlin("jvm") version "2.3.20"
-    kotlin("plugin.serialization") version "2.2.0"
+    kotlin("plugin.serialization") version "2.3.20"
     id("com.gradleup.shadow") version "9.4.1"
     id("org.cyclonedx.bom") version "3.2.4"
 }
