@@ -3,14 +3,16 @@ package no.nav.k9.endringslogg
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import no.nav.k9.endringslogg.env.DB_JDBC_URL
-import org.jetbrains.exposed.sql.Database
-import org.jetbrains.exposed.sql.Table
-import org.jetbrains.exposed.sql.batchInsert
-import org.jetbrains.exposed.sql.insert
-import org.jetbrains.exposed.sql.javatime.timestamp
-import org.jetbrains.exposed.sql.selectAll
-import org.jetbrains.exposed.sql.transactions.transaction
-import org.jetbrains.exposed.sql.update
+import org.jetbrains.exposed.v1.core.Table
+import org.jetbrains.exposed.v1.core.eq
+import org.jetbrains.exposed.v1.core.java.javaUUID
+import org.jetbrains.exposed.v1.javatime.timestamp
+import org.jetbrains.exposed.v1.jdbc.Database
+import org.jetbrains.exposed.v1.jdbc.batchInsert
+import org.jetbrains.exposed.v1.jdbc.insert
+import org.jetbrains.exposed.v1.jdbc.selectAll
+import org.jetbrains.exposed.v1.jdbc.transactions.transaction
+import org.jetbrains.exposed.v1.jdbc.update
 import java.security.MessageDigest
 import java.time.Instant
 import java.time.temporal.ChronoUnit
@@ -25,7 +27,7 @@ fun sha256(userId: String): String {
 
 object Seen : Table("seen") {
     val userId = varchar("user_id", 255)
-    val documentId = uuid("document_id")
+    val documentId = javaUUID("document_id")
     val appId = varchar("app_id", 255)
     val openedLink = bool("opened_link").default(false)
     val openedModal = bool("opened_modal").default(false)
@@ -35,7 +37,7 @@ object Seen : Table("seen") {
 
 object SeenForced : Table("seen_forced") {
     val userId = varchar("user_id", 255)
-    val documentId = uuid("document_id")
+    val documentId = javaUUID("document_id")
     override val primaryKey = PrimaryKey(userId, documentId)
 }
 
