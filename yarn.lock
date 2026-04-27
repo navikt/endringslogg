@@ -3174,7 +3174,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@navikt/aksel-icons@npm:8.9.1, @navikt/aksel-icons@npm:^8.9.1":
+"@navikt/aksel-icons@npm:8.10.1":
+  version: 8.10.1
+  resolution: "@navikt/aksel-icons@npm:8.10.1::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Faksel-icons%2F8.10.1%2F6adb563ecbb10ca249f14b966e2bf3920082e776"
+  checksum: 10/8b4b588afe437906d006f8e89fcd87093fdc5bfad21cad46c5bbbe71014773c9ff938e27f0abf869ef09addfa8c99f19e9de8885c8a3cd2124202dbe6f5f3d74
+  languageName: node
+  linkType: hard
+
+"@navikt/aksel-icons@npm:^8.9.1":
   version: 8.9.1
   resolution: "@navikt/aksel-icons@npm:8.9.1::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Faksel-icons%2F8.9.1%2Fff1f10cabbda2ee7f6baa457cadcabb13adc64cc"
   checksum: 10/bb27d79143d76b73244a96f908fc9106e304445850cacb8742163e4e6d08b54772834b26110b734b03a7fc253edd34600cc7726b924f63c7785557668e699c99
@@ -3218,7 +3225,7 @@ __metadata:
   resolution: "@navikt/endringslogg@workspace:frontend"
   dependencies:
     "@eslint/js": "npm:10.0.1"
-    "@navikt/aksel-icons": "npm:8.9.1"
+    "@navikt/aksel-icons": "npm:8.10.1"
     "@navikt/ds-css": "npm:8.9.1"
     "@navikt/ds-react": "npm:8.9.1"
     "@portabletext/react": "npm:6.0.3"
