@@ -16,13 +16,10 @@ Se [frontend/README.md](frontend/README.md) for installasjon, publisering og ver
 
 ## Sanity Studio
 
-### Onboarding av nye personer som skal skrive innlegg
-1. Personen må be om tilgang til sanity i https://myapplications.microsoft.com/
-2. En admin i familie-endringslogg må sende invitasjon med "Editor"-rolle til den som skal ha tilgang
-
-### Skrive innlegg
 Innhold redigeres på [k9-endringslogg.sanity.studio](https://k9-endringslogg.sanity.studio/production/desk).
-Logg inn med SSO og organization slug `navikt`.
+1. Personen må be om tilgang til sanity i https://myapplications.microsoft.com/
+2. Logg inn med SSO og organization slug `navikt`.
+3. Admin må inn og gi skrivetilgang for de som skal kunne skrive innlegg
 
 ## Backend
 
