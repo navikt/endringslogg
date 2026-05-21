@@ -14,7 +14,7 @@ jobs:
       pull-requests: write
       id-token: write
     steps:
-      - uses: actions/checkout@900f2210b1d28bbbd0bd22d17926b9e224e8f231 # Immutable release
+      - uses: actions/checkout@900f2210b1d28bbbd0bd22d17926b9e224e8f231
         with:
           persist-credentials: false
       - uses: navikt/digestabot@3302a753e533ceb9ec216de7f78345436cd636e3 
