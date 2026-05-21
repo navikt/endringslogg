@@ -60,7 +60,7 @@ dependencies {
     implementation("org.flywaydb:flyway-core:12.3.0")
     implementation("org.flywaydb:flyway-database-postgresql:12.3.0")
     implementation("com.github.ben-manes.caffeine:caffeine:3.2.2")
-    implementation("com.launchdarkly:okhttp-eventsource:4.1.1")
+    implementation("com.launchdarkly:okhttp-eventsource:4.3.0")
     testImplementation("io.ktor:ktor-server-tests:$ktor_version")
     testImplementation("org.jetbrains.kotlin:kotlin-test:$kotlin_version")
     testImplementation("com.h2database:h2:2.3.232")
