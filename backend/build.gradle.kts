@@ -11,7 +11,7 @@ val ktlint by configurations.creating
 plugins {
     application
     kotlin("jvm") version "2.3.20"
-    kotlin("plugin.serialization") version "2.2.0"
+    kotlin("plugin.serialization") version "2.3.20"
     id("com.gradleup.shadow") version "9.4.1"
     id("org.cyclonedx.bom") version "3.2.4"
 }
@@ -56,11 +56,11 @@ dependencies {
     implementation("org.jetbrains.exposed:exposed-java-time:$exposed_version")
     implementation("com.zaxxer:HikariCP:$hikaricp_version")
     implementation("org.postgresql:postgresql:42.7.10")
-    implementation("com.google.cloud.sql:postgres-socket-factory:1.25.2")
-    implementation("org.flywaydb:flyway-core:12.3.0")
-    implementation("org.flywaydb:flyway-database-postgresql:12.3.0")
+    implementation("com.google.cloud.sql:postgres-socket-factory:1.28.3")
+    implementation("org.flywaydb:flyway-core:12.6.1")
+    implementation("org.flywaydb:flyway-database-postgresql:12.6.1")
     implementation("com.github.ben-manes.caffeine:caffeine:3.2.2")
-    implementation("com.launchdarkly:okhttp-eventsource:4.1.1")
+    implementation("com.launchdarkly:okhttp-eventsource:4.3.0")
     testImplementation("io.ktor:ktor-server-tests:$ktor_version")
     testImplementation("org.jetbrains.kotlin:kotlin-test:$kotlin_version")
     testImplementation("com.h2database:h2:2.3.232")
