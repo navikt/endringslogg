@@ -3,7 +3,7 @@ name: "Check for newer image versions"
 on:
   workflow_dispatch:
   schedule:
-    # At the end of every day
+    # Every day at 00:00 UTC
     - cron: "0 0 * * *"
 
 jobs:
