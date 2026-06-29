@@ -30,7 +30,7 @@ jobs:
       - name: Generer SBOM
         run: ./gradlew generateSBOM
       - name: Push docker image to GAR and sign image
-        uses: nais/docker-build-push@be85229e81c0293c265c646c084f05317fb6e0d2 # v0
+        uses: nais/docker-build-push@05dbb6091b30bd84279c6d64a45ef8782fd410a5 # v0
         id: docker-build-push
         with:
           team: k9saksbehandling
