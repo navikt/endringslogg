@@ -6,18 +6,31 @@ updates:
       interval: weekly
     cooldown:
       default-days: 7
+    open-pull-requests-limit: 10
     groups:
       major:
+        applies-to: version-updates
         patterns:
           - "*"
         update-types:
           - "major"
       minor-patch:
+        applies-to: version-updates
         patterns:
           - "*"
         update-types:
           - "minor"
           - "patch"
+      # Fanger opp SHA-pinnede actions der Dependabot ikke kan utlede semver-type,
+      # og som derfor ikke treffer gruppene over.
+      ovrige-actions:
+        applies-to: version-updates
+        patterns:
+          - "*"
+      actions-security:
+        applies-to: security-updates
+        patterns:
+          - "*"
 
   - package-ecosystem: npm
     directory: "/"
@@ -25,18 +38,29 @@ updates:
       interval: weekly
     cooldown:
       default-days: 7
+    open-pull-requests-limit: 10
     groups:
       major:
+        applies-to: version-updates
         patterns:
           - "*"
         update-types:
           - "major"
       minor-patch:
+        applies-to: version-updates
         patterns:
           - "*"
         update-types:
           - "minor"
           - "patch"
+      ovrige-npm:
+        applies-to: version-updates
+        patterns:
+          - "*"
+      npm-security:
+        applies-to: security-updates
+        patterns:
+          - "*"
 
   - package-ecosystem: gradle
     directory: "/backend"
@@ -44,15 +68,26 @@ updates:
       interval: weekly
     cooldown:
       default-days: 7
+    open-pull-requests-limit: 10
     groups:
       major:
+        applies-to: version-updates
         patterns:
           - "*"
         update-types:
           - "major"
       minor-patch:
+        applies-to: version-updates
         patterns:
           - "*"
         update-types:
           - "minor"
           - "patch"
+      ovrige-gradle:
+        applies-to: version-updates
+        patterns:
+          - "*"
+      gradle-security:
+        applies-to: security-updates
+        patterns:
+          - "*"
