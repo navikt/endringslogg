@@ -1,4 +1,4 @@
-FROM europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/jre:openjdk-21-dev@sha256:442a9d5982ad6624e5dc1639987df586d0aa3fa98ba09e36330db8d9b985c51f
+FROM europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/jre:openjdk-21-dev@sha256:3dbbd92db2bcb2982c22b6f27ea574ae708cb3de7aa8f6036e1e97c72edb330e
 COPY ./build/libs/*all.jar "app.jar"
 ENV TZ="Europe/Oslo"
 ENV JDK_JAVA_OPTIONS="-XX:MaxRAMPercentage=75"
