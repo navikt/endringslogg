@@ -1810,7 +1810,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@codemirror/state@npm:^6.7.0, @codemirror/state@npm:^6.7.2":
+"@codemirror/state@npm:^6.7.0, @codemirror/state@npm:^6.7.4":
   version: 6.7.4
   resolution: "@codemirror/state@npm:6.7.4"
   dependencies:
@@ -1843,7 +1843,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@codemirror/view@npm:^6.43.10":
+"@codemirror/view@npm:^6.43.11":
   version: 6.43.11
   resolution: "@codemirror/view@npm:6.43.11"
   dependencies:
@@ -3350,19 +3350,19 @@ __metadata:
     "@portabletext/react": "npm:8.0.1"
     "@storybook/addon-essentials": "npm:8.6.18"
     "@storybook/react-vite": "npm:10.6.0"
-    "@types/react": "npm:19.2.18"
-    "@types/react-dom": "npm:19.2.7"
+    "@types/react": "npm:19.3.0"
+    "@types/react-dom": "npm:19.3.0"
     classnames: "npm:2.5.1"
     copyfiles: "npm:2.4.1"
     eslint: "npm:10.10.0"
     eslint-config-prettier: "npm:10.1.8"
     eslint-plugin-react-hooks: "npm:7.1.1"
-    react: "npm:19.2.8"
-    react-dom: "npm:19.2.8"
+    react: "npm:19.3.0"
+    react-dom: "npm:19.3.0"
     storybook: "npm:10.6.0"
     typescript: "npm:6.0.3"
     typescript-eslint: "npm:8.70.0"
-    vite: "npm:8.2.2"
+    vite: "npm:8.3.0"
   peerDependencies:
     "@navikt/aksel-icons": 8.x
     "@navikt/ds-react": 8.x
@@ -3655,6 +3655,13 @@ __metadata:
   version: 0.148.0
   resolution: "@oxc-project/types@npm:0.148.0"
   checksum: 10/835b0479161cd80c7dee653b77d31f6d5239e20530cda8a10466bcbb17de08363777939c29670e82fb9d9eca89dc49030e50742051418d987ec70f62faa3317b
+  languageName: node
+  linkType: hard
+
+"@oxc-project/types@npm:=0.149.0":
+  version: 0.149.0
+  resolution: "@oxc-project/types@npm:0.149.0"
+  checksum: 10/6bd7b656ecdbfa96eea3ca0d79264ad367f941eaec1c47883b7c763a300ac81750de23862089b959b0c9a865abd171145d639368294a9daab0d47df07b1f8c6e
   languageName: node
   linkType: hard
 
@@ -4063,9 +4070,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rolldown/binding-android-arm-eabi@npm:1.2.8":
+  version: 1.2.8
+  resolution: "@rolldown/binding-android-arm-eabi@npm:1.2.8"
+  conditions: os=android & cpu=arm
+  languageName: node
+  linkType: hard
+
 "@rolldown/binding-android-arm64@npm:1.2.7":
   version: 1.2.7
   resolution: "@rolldown/binding-android-arm64@npm:1.2.7"
+  conditions: os=android & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@rolldown/binding-android-arm64@npm:1.2.8":
+  version: 1.2.8
+  resolution: "@rolldown/binding-android-arm64@npm:1.2.8"
   conditions: os=android & cpu=arm64
   languageName: node
   linkType: hard
@@ -4077,9 +4098,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rolldown/binding-darwin-arm64@npm:1.2.8":
+  version: 1.2.8
+  resolution: "@rolldown/binding-darwin-arm64@npm:1.2.8"
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
 "@rolldown/binding-darwin-x64@npm:1.2.7":
   version: 1.2.7
   resolution: "@rolldown/binding-darwin-x64@npm:1.2.7"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@rolldown/binding-darwin-x64@npm:1.2.8":
+  version: 1.2.8
+  resolution: "@rolldown/binding-darwin-x64@npm:1.2.8"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
@@ -4091,9 +4126,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rolldown/binding-freebsd-x64@npm:1.2.8":
+  version: 1.2.8
+  resolution: "@rolldown/binding-freebsd-x64@npm:1.2.8"
+  conditions: os=freebsd & cpu=x64
+  languageName: node
+  linkType: hard
+
 "@rolldown/binding-linux-arm-gnueabihf@npm:1.2.7":
   version: 1.2.7
   resolution: "@rolldown/binding-linux-arm-gnueabihf@npm:1.2.7"
+  conditions: os=linux & cpu=arm
+  languageName: node
+  linkType: hard
+
+"@rolldown/binding-linux-arm-gnueabihf@npm:1.2.8":
+  version: 1.2.8
+  resolution: "@rolldown/binding-linux-arm-gnueabihf@npm:1.2.8"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
@@ -4105,9 +4154,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rolldown/binding-linux-arm64-gnu@npm:1.2.8":
+  version: 1.2.8
+  resolution: "@rolldown/binding-linux-arm64-gnu@npm:1.2.8"
+  conditions: os=linux & cpu=arm64 & libc=glibc
+  languageName: node
+  linkType: hard
+
 "@rolldown/binding-linux-arm64-musl@npm:1.2.7":
   version: 1.2.7
   resolution: "@rolldown/binding-linux-arm64-musl@npm:1.2.7"
+  conditions: os=linux & cpu=arm64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"@rolldown/binding-linux-arm64-musl@npm:1.2.8":
+  version: 1.2.8
+  resolution: "@rolldown/binding-linux-arm64-musl@npm:1.2.8"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
@@ -4119,9 +4182,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rolldown/binding-linux-ppc64-gnu@npm:1.2.8":
+  version: 1.2.8
+  resolution: "@rolldown/binding-linux-ppc64-gnu@npm:1.2.8"
+  conditions: os=linux & cpu=ppc64 & libc=glibc
+  languageName: node
+  linkType: hard
+
 "@rolldown/binding-linux-s390x-gnu@npm:1.2.7":
   version: 1.2.7
   resolution: "@rolldown/binding-linux-s390x-gnu@npm:1.2.7"
+  conditions: os=linux & cpu=s390x & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@rolldown/binding-linux-s390x-gnu@npm:1.2.8":
+  version: 1.2.8
+  resolution: "@rolldown/binding-linux-s390x-gnu@npm:1.2.8"
   conditions: os=linux & cpu=s390x & libc=glibc
   languageName: node
   linkType: hard
@@ -4133,9 +4210,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rolldown/binding-linux-x64-gnu@npm:1.2.8":
+  version: 1.2.8
+  resolution: "@rolldown/binding-linux-x64-gnu@npm:1.2.8"
+  conditions: os=linux & cpu=x64 & libc=glibc
+  languageName: node
+  linkType: hard
+
 "@rolldown/binding-linux-x64-musl@npm:1.2.7":
   version: 1.2.7
   resolution: "@rolldown/binding-linux-x64-musl@npm:1.2.7"
+  conditions: os=linux & cpu=x64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"@rolldown/binding-linux-x64-musl@npm:1.2.8":
+  version: 1.2.8
+  resolution: "@rolldown/binding-linux-x64-musl@npm:1.2.8"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
@@ -4147,6 +4238,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rolldown/binding-openharmony-arm64@npm:1.2.8":
+  version: 1.2.8
+  resolution: "@rolldown/binding-openharmony-arm64@npm:1.2.8"
+  conditions: os=openharmony & cpu=arm64
+  languageName: node
+  linkType: hard
+
 "@rolldown/binding-win32-arm64-msvc@npm:1.2.7":
   version: 1.2.7
   resolution: "@rolldown/binding-win32-arm64-msvc@npm:1.2.7"
@@ -4154,9 +4252,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rolldown/binding-win32-arm64-msvc@npm:1.2.8":
+  version: 1.2.8
+  resolution: "@rolldown/binding-win32-arm64-msvc@npm:1.2.8"
+  conditions: os=win32 & cpu=arm64
+  languageName: node
+  linkType: hard
+
 "@rolldown/binding-win32-x64-msvc@npm:1.2.7":
   version: 1.2.7
   resolution: "@rolldown/binding-win32-x64-msvc@npm:1.2.7"
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@rolldown/binding-win32-x64-msvc@npm:1.2.8":
+  version: 1.2.8
+  resolution: "@rolldown/binding-win32-x64-msvc@npm:1.2.8"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
@@ -4360,6 +4472,49 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sanity/cli-build@npm:^6.3.1":
+  version: 6.3.1
+  resolution: "@sanity/cli-build@npm:6.3.1"
+  dependencies:
+    "@oclif/core": "npm:^4.11.14"
+    "@rolldown/plugin-babel": "npm:^0.2.3"
+    "@sanity/cli-core": "npm:^3.7.0"
+    "@sanity/generate-help-url": "npm:^4.0.0"
+    "@sanity/schema": "npm:^6.12.0"
+    "@sanity/telemetry": "npm:^1.1.0"
+    "@sanity/types": "npm:^6.12.0"
+    "@sanity/workbench-cli": "npm:^2.4.3"
+    "@vitejs/plugin-react": "npm:^6.1.1"
+    chokidar: "npm:^5.0.0"
+    cjs-module-lexer: "npm:^2.2.1"
+    dompurify: "npm:^3.4.14"
+    empathic: "npm:^2.0.1"
+    jsdom: "npm:^29.1.1"
+    lightningcss: "npm:^1.33.0"
+    lodash-es: "npm:^4.18.1"
+    node-html-parser: "npm:^7.1.0"
+    oneline: "npm:^2.0.0"
+    picomatch: "npm:^4.0.4"
+    react: "npm:^19.2.7"
+    react-is: "npm:^19.2.7"
+    semver: "npm:^7.8.1"
+    vite: "npm:^8.2.2"
+    zod: "npm:^4.5.2"
+  peerDependencies:
+    babel-plugin-react-compiler: "*"
+    oxc-transform-react: "*"
+    sanity: ^6.12.0
+  peerDependenciesMeta:
+    babel-plugin-react-compiler:
+      optional: true
+    oxc-transform-react:
+      optional: true
+    sanity:
+      optional: true
+  checksum: 10/0b4299affdffc77e7c7de90684b47aa77a52c96d0742865bddc8c4a146865b5dde1a76677a091ed6c82869e835158ab94cbe8460b294d2f0a6ba6b53ca473583
+  languageName: node
+  linkType: hard
+
 "@sanity/cli-core@npm:^2.1.1":
   version: 2.8.1
   resolution: "@sanity/cli-core@npm:2.8.1"
@@ -4427,7 +4582,121 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sanity/cli@npm:8.9.1, @sanity/cli@npm:^8.7.0":
+"@sanity/cli-core@npm:^3.7.0":
+  version: 3.7.0
+  resolution: "@sanity/cli-core@npm:3.7.0"
+  dependencies:
+    "@inquirer/prompts": "npm:^8.5.2"
+    "@oclif/core": "npm:^4.11.14"
+    "@sanity/client": "npm:^8.5.0"
+    boxen: "npm:^8.0.1"
+    empathic: "npm:^2.0.1"
+    get-it: "npm:^9.5.2"
+    get-tsconfig: "npm:^4.14.3"
+    import-meta-resolve: "npm:^4.2.0"
+    jiti: "npm:^2.7.0"
+    jsdom: "npm:^29.1.1"
+    json-lexer: "npm:^1.2.0"
+    log-symbols: "npm:^7.0.1"
+    obug: "npm:^2.1.4"
+    ora: "npm:^9.0.0"
+    rxjs: "npm:^7.8.2"
+    vite: "npm:^8.2.2"
+    wrap-ansi: "npm:^9.0.2"
+    zod: "npm:^4.5.2"
+  peerDependencies:
+    babel-plugin-react-compiler: "*"
+    oxc-transform-react: "*"
+  peerDependenciesMeta:
+    babel-plugin-react-compiler:
+      optional: true
+    oxc-transform-react:
+      optional: true
+  checksum: 10/e39c02a420aa450def319152eb7b658db20a8aef82a456caf7d6f6fcdec86898de61daa5feb83c945d039173f344ad889a18719028ad16edcedc98628aefbb00
+  languageName: node
+  linkType: hard
+
+"@sanity/cli@npm:8.11.0":
+  version: 8.11.0
+  resolution: "@sanity/cli@npm:8.11.0"
+  dependencies:
+    "@oclif/core": "npm:^4.11.14"
+    "@oclif/plugin-help": "npm:^6.2.53"
+    "@oclif/plugin-not-found": "npm:^3.2.88"
+    "@sanity/cli-build": "npm:^6.3.1"
+    "@sanity/cli-core": "npm:^3.7.0"
+    "@sanity/client": "npm:^8.5.0"
+    "@sanity/codegen": "npm:^8.1.0"
+    "@sanity/descriptors": "npm:^1.3.0"
+    "@sanity/export": "npm:^6.2.1"
+    "@sanity/generate-help-url": "npm:^4.0.0"
+    "@sanity/id-utils": "npm:^1.0.0"
+    "@sanity/import": "npm:^7.0.0"
+    "@sanity/migrate": "npm:^8.0.2"
+    "@sanity/runtime-cli": "npm:^17.12.0"
+    "@sanity/schema": "npm:^6.12.0"
+    "@sanity/telemetry": "npm:^1.1.0"
+    "@sanity/template-validator": "npm:^3.1.1"
+    "@sanity/types": "npm:^6.12.0"
+    "@sanity/workbench-cli": "npm:^2.5.0"
+    "@sanity/worker-channels": "npm:^2.0.0"
+    "@sanity/workflow-cli": "npm:0.31.0"
+    "@sanity/workflow-engine": "npm:0.31.0"
+    "@vercel/frameworks": "npm:3.29.0"
+    chokidar: "npm:^5.0.0"
+    console-table-printer: "npm:^2.15.0"
+    eventsource: "npm:^5.1.1"
+    execa: "npm:^10.0.1"
+    form-data: "npm:^4.0.5"
+    get-latest-version: "npm:^6.0.1"
+    groq-js: "npm:^2.0.0"
+    gunzip-maybe: "npm:^1.4.2"
+    import-meta-resolve: "npm:^4.2.0"
+    is-installed-globally: "npm:^1.0.0"
+    json5: "npm:^2.2.3"
+    jsonc-parser: "npm:^3.3.1"
+    lodash-es: "npm:^4.18.1"
+    minimist: "npm:^1.2.8"
+    obug: "npm:^2.1.4"
+    oneline: "npm:^2.0.0"
+    open: "npm:^11.0.0"
+    p-map: "npm:^7.0.3"
+    peek-stream: "npm:^1.1.3"
+    picomatch: "npm:^4.0.4"
+    pluralize-esm: "npm:^9.0.5"
+    pretty-ms: "npm:^9.3.0"
+    promise-props-recursive: "npm:^2.0.2"
+    rxjs: "npm:^7.8.2"
+    semver: "npm:^7.8.1"
+    skills: "npm:^1.5.9"
+    smol-toml: "npm:^1.6.1"
+    string-argv: "npm:^0.3.2"
+    string-width: "npm:^7.2.0"
+    tar: "npm:^7.5.18"
+    tar-stream: "npm:^3.2.0"
+    tinyglobby: "npm:^0.2.17"
+    typeid-js: "npm:^1.2.0"
+    valibot: "npm:^1.4.2"
+    vite: "npm:^8.2.2"
+    which: "npm:^6.0.1"
+    wrap-ansi: "npm:^9.0.2"
+    yaml: "npm:^2.9.0"
+    zod: "npm:^4.5.2"
+  peerDependencies:
+    babel-plugin-react-compiler: "*"
+    oxc-transform-react: "*"
+  peerDependenciesMeta:
+    babel-plugin-react-compiler:
+      optional: true
+    oxc-transform-react:
+      optional: true
+  bin:
+    sanity: ./bin/run.js
+  checksum: 10/65bdc0d221e8feae3b49f478f1d77d27f6ee1dcac9d09ec0cd9a44b1010d36f58ca65e43bfc5d83ca2dbce2e716ff1dd6e378a2098ea8c1bbb38d432de07cba2
+  languageName: node
+  linkType: hard
+
+"@sanity/cli@npm:^8.7.0":
   version: 8.9.1
   resolution: "@sanity/cli@npm:8.9.1"
   dependencies:
@@ -4540,6 +4809,18 @@ __metadata:
     obug: "npm:^2.1.4"
     rxjs: "npm:^7.8.2"
   checksum: 10/a7e63873a9698b9a5f2dae79dd2942f70583c663c75dd3b53215b6dd58f687ca99f40b659c81d8d37ef1b3b0d43cf3dea3fcc048c1eb2572e88a0ab1f98b1e10
+  languageName: node
+  linkType: hard
+
+"@sanity/client@npm:^8.6.1":
+  version: 8.6.1
+  resolution: "@sanity/client@npm:8.6.1"
+  dependencies:
+    eventsource: "npm:^5.1.1"
+    get-it: "npm:^9.5.4"
+    obug: "npm:^2.1.4"
+    rxjs: "npm:^7.8.2"
+  checksum: 10/8d9df50551c5fbaac67a6d4cf6a0d9d148164aee5537b16db68399ea26696c4852f3ebcfbe5a3b38ac336de09fd5380b0797628769f4b2bae864631c28f22509
   languageName: node
   linkType: hard
 
@@ -4711,6 +4992,15 @@ __metadata:
   peerDependencies:
     react: ^18 || ^19
   checksum: 10/cdd2df377993cc72134e4bcf60d98ea42e9bea1e6903790653205231d93d826bd72535bdcfac132a4f3f5b04edc9f4d5f355eaa328000cce711fc3c9983832f1
+  languageName: node
+  linkType: hard
+
+"@sanity/icons@npm:^5.2.2":
+  version: 5.2.2
+  resolution: "@sanity/icons@npm:5.2.2"
+  peerDependencies:
+    react: ^18 || ^19
+  checksum: 10/72fadd5e7585336e9e9e3d1e8fae81c1566e58fe7a897a67e3f29cd621192f68554ed0f1c1f5014087af9a9edfdbcedd8d7608935d79cf2706f534661505ae56
   languageName: node
   linkType: hard
 
@@ -5053,7 +5343,29 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sanity/ui@npm:4.2.0, @sanity/ui@npm:^4.0.7":
+"@sanity/ui@npm:4.2.1, @sanity/ui@npm:^4.2.1":
+  version: 4.2.1
+  resolution: "@sanity/ui@npm:4.2.1"
+  dependencies:
+    "@floating-ui/react-dom": "npm:^2.1.9"
+    "@sanity/color": "npm:^3.0.8"
+    "@sanity/icons": "npm:^5.2.2"
+    "@vanilla-extract/dynamic": "npm:^2.1.5"
+    clsx: "npm:^2.1.1"
+    csstype: "npm:^3.2.3"
+    motion: "npm:^13.2.0"
+    react-is: "npm:^19.3.0"
+    react-refractor: "npm:^4.0.0"
+    use-effect-event: "npm:^2.0.4"
+  peerDependencies:
+    react: ^19.2
+    react-dom: ^19.2
+    styled-components: ^6.1
+  checksum: 10/be59e8bf5c01049cc32f0c1178c75def0735d6d7f1560ced78f7f383db2f8ab8704be6dcd679299c8fccf48c448be21d877ebf2d009ae6a1af0ea32d74e1f756
+  languageName: node
+  linkType: hard
+
+"@sanity/ui@npm:^4.0.7":
   version: 4.2.0
   resolution: "@sanity/ui@npm:4.2.0"
   dependencies:
@@ -5124,41 +5436,42 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sanity/vision@npm:6.12.0":
-  version: 6.12.0
-  resolution: "@sanity/vision@npm:6.12.0"
+"@sanity/vision@npm:6.13.2":
+  version: 6.13.2
+  resolution: "@sanity/vision@npm:6.13.2"
   dependencies:
     "@codemirror/autocomplete": "npm:^6.20.3"
     "@codemirror/commands": "npm:^6.11.0"
     "@codemirror/lang-javascript": "npm:^6.2.5"
     "@codemirror/language": "npm:^6.12.4"
     "@codemirror/search": "npm:^6.7.2"
-    "@codemirror/state": "npm:^6.7.2"
-    "@codemirror/view": "npm:^6.43.10"
+    "@codemirror/state": "npm:^6.7.4"
+    "@codemirror/view": "npm:^6.43.11"
     "@lezer/highlight": "npm:^1.2.3"
     "@rexxars/react-json-inspector": "npm:^9.0.1"
     "@rexxars/react-split-pane": "npm:^1.0.0"
-    "@sanity/client": "npm:^8.4.0"
+    "@sanity/client": "npm:^8.6.1"
     "@sanity/color": "npm:^3.0.8"
-    "@sanity/icons": "npm:^5.2.1"
+    "@sanity/icons": "npm:^5.2.2"
     "@sanity/lezer-groq": "npm:^1.0.4"
-    "@sanity/ui": "npm:^4.0.7"
+    "@sanity/ui": "npm:^4.2.1"
     "@sanity/uuid": "npm:^3.0.3"
     "@uiw/react-codemirror": "npm:^4.25.11"
     "@vanilla-extract/dynamic": "npm:^2.1.5"
+    dequal: "npm:^2.0.3"
     is-hotkey-esm: "npm:^1.0.0"
     json-2-csv: "npm:^5.5.9"
     json5: "npm:^2.2.3"
     lodash-es: "npm:^4.18.1"
     quick-lru: "npm:^7.3.0"
-    react-rx: "npm:^6.0.0"
+    react-rx: "npm:^6.0.1"
     rxjs: "npm:^7.8.2"
-    ui5: "npm:@sanity/ui@5.0.0-alpha.8"
+    ui5: "npm:@sanity/ui@5.0.0-alpha.10"
     use-effect-event: "npm:^2.0.4"
   peerDependencies:
     react: ^19.2.2
     sanity: ^6.0.0-0
-  checksum: 10/a7d0c2c1f8cd34180b60524fb58cd05ef2a63c5b60d84c790aab8506617cc148f83a9fbab87154d425ee232134df155f2c2e35f01d87d9ce676ab0cdf05303b3
+  checksum: 10/711d4cf595f2aef0151d3c591ada7bd8c1f64fa8f7f0b499df614142fef03df67aaf48006e013dadf65c071e885682463cb539707d7ed244519eebc514ec6416
   languageName: node
   linkType: hard
 
@@ -5190,6 +5503,24 @@ __metadata:
     vite: "npm:^8.2.2"
     zod: "npm:^4.5.2"
   checksum: 10/db2ba1eef6a23179ede618129ba20b0d72b92e767fbb683858a25362e846794fe6e97246650790df4acbaf193fc05ace4af913c9f3b5cfc92c332afc267694ed
+  languageName: node
+  linkType: hard
+
+"@sanity/workbench-cli@npm:^2.4.3, @sanity/workbench-cli@npm:^2.5.0":
+  version: 2.5.0
+  resolution: "@sanity/workbench-cli@npm:2.5.0"
+  dependencies:
+    "@module-federation/runtime": "npm:2.9.0"
+    "@module-federation/vite": "npm:1.21.0"
+    "@sanity/cli-core": "npm:^3.7.0"
+    "@sanity/types": "npm:^6.12.0"
+    "@vitejs/plugin-react": "npm:^6.1.1"
+    form-data: "npm:^4.0.5"
+    rxjs: "npm:^7.8.2"
+    tar: "npm:^7.5.18"
+    vite: "npm:^8.2.2"
+    zod: "npm:^4.5.2"
+  checksum: 10/c6e1613066782a43a9616e6daebf8fa80542772ae8d8f99df15b2a5cc16e601a2a33576bf9aee79ebd5f311330e340e8c50185cb65d0ff94ed80866fa1dfda4b
   languageName: node
   linkType: hard
 
@@ -5865,21 +6196,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:19.2.7":
-  version: 19.2.7
-  resolution: "@types/react-dom@npm:19.2.7"
+"@types/react-dom@npm:19.3.0":
+  version: 19.3.0
+  resolution: "@types/react-dom@npm:19.3.0"
   peerDependencies:
-    "@types/react": ^19.2.0
-  checksum: 10/84079ed3b5470b7fafe4478c9180c2b0f19f8c5aebe666091e1ee5bc15464acb248909553769bd338de5f508afe96fec353997aed0457bb0d3a1e6246bcafcb8
+    "@types/react": ^19.3.0
+  checksum: 10/e24ee9948dc3a6c81e8aa4acf120a1194d3a3b68e97205b1e5e24e087b9f0c0c2e40b128fd258663ccb5889c852aeee558c0daa3255c3d82e0fc1c5d64c4b69a
   languageName: node
   linkType: hard
 
-"@types/react@npm:19.2.18":
-  version: 19.2.18
-  resolution: "@types/react@npm:19.2.18"
+"@types/react@npm:19.3.0":
+  version: 19.3.0
+  resolution: "@types/react@npm:19.3.0"
   dependencies:
     csstype: "npm:^3.2.2"
-  checksum: 10/c718ec5c5272ef5c1c77fcdd07f567c77197b593583539459b4bdaea89ca55ad7c814b7eb2151dccfa459b2c384b599a45e7e35550b789883d66b363d30c94d8
+  checksum: 10/2f4589222fd9c512e1ef78e65f334ade8777400add8ec0803fcc3a044761679b7984ba8410a890af24255383c3251a568bb692b60acfa22397ba0a64b2e032bf
   languageName: node
   linkType: hard
 
@@ -7673,13 +8004,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "endringslogg-sanity@workspace:sanity"
   dependencies:
-    "@sanity/cli": "npm:8.9.1"
-    "@sanity/ui": "npm:4.2.0"
-    "@sanity/vision": "npm:6.12.0"
-    "@types/react": "npm:19.2.18"
-    react: "npm:19.2.8"
-    react-dom: "npm:19.2.8"
-    react-is: "npm:19.2.8"
+    "@sanity/cli": "npm:8.11.0"
+    "@sanity/ui": "npm:4.2.1"
+    "@sanity/vision": "npm:6.13.2"
+    "@types/react": "npm:19.3.0"
+    react: "npm:19.3.0"
+    react-dom: "npm:19.3.0"
+    react-is: "npm:19.3.0"
     sanity: "npm:6.12.0"
     styled-components: "npm:6.5.3"
     typescript: "npm:6.0.3"
@@ -8504,6 +8835,20 @@ __metadata:
     vitest:
       optional: true
   checksum: 10/f4cb4bb43c20a09930f295d3c49a5f004ef940c517497f3b2c3fd0b65eaac5acb49708b2275390aaca6e9cce702260b84695457ca86a38780a915dd4d8ffc9ce
+  languageName: node
+  linkType: hard
+
+"get-it@npm:^9.5.4":
+  version: 9.5.4
+  resolution: "get-it@npm:9.5.4"
+  dependencies:
+    undici: "npm:^7.29.0"
+  peerDependencies:
+    vitest: ">=2.0.0"
+  peerDependenciesMeta:
+    vitest:
+      optional: true
+  checksum: 10/5c415ad30e4b8da197d40a1baec51fce5ab77a15594eeef9f7f12882ecfe2d7522598fe10ba1b8707ba97a7e20399d6c08545339da562796f449ed157212ecc3
   languageName: node
   linkType: hard
 
@@ -10864,7 +11209,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.5.26":
+"postcss@npm:^8.5.26, postcss@npm:^8.5.28":
   version: 8.5.28
   resolution: "postcss@npm:8.5.28"
   dependencies:
@@ -11099,14 +11444,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:19.2.8":
-  version: 19.2.8
-  resolution: "react-dom@npm:19.2.8"
+"react-dom@npm:19.3.0":
+  version: 19.3.0
+  resolution: "react-dom@npm:19.3.0"
   dependencies:
-    scheduler: "npm:^0.27.0"
+    scheduler: "npm:^0.28.0"
   peerDependencies:
-    react: ^19.2.8
-  checksum: 10/fb45d500a8615a36d71a821213a3d4bfe32a70aa1d04ce17d8791dd10c4ef0281e7fdd46694e1112f0f2dcf58df89d12043a13228be9788458aa82f4885a9cdc
+    react: ^19.3.0
+  checksum: 10/fa6c6a3d0cca3f98280017936f818a1f9e474d61d1a64a7b02bfedabbf936234dd3752ba5b7f35efa7f2264c9a073ebace56cb2521e1cbfe7a50444a43ef5690
   languageName: node
   linkType: hard
 
@@ -11183,10 +11528,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-is@npm:19.2.8, react-is@npm:^19.2.7, react-is@npm:^19.2.8":
-  version: 19.2.8
-  resolution: "react-is@npm:19.2.8"
-  checksum: 10/09d053ff36e0ba4d47164baf9eab1c7772791f0371aa92281f0e547e0f6a5a5c8a1eb939aadd1a08b3c565958dd63ee59c746b6ac0d5ccb14ad742ac0314ab15
+"react-is@npm:19.3.0, react-is@npm:^19.3.0":
+  version: 19.3.0
+  resolution: "react-is@npm:19.3.0"
+  checksum: 10/69cfafcab48caac03da35fb17e640a2a2de8299a3cd699da720e671a22231fc7179c77c82e379826728857f9cc45cb56ff1e7f5d607acdd48fe151417a2a388f
   languageName: node
   linkType: hard
 
@@ -11204,6 +11549,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-is@npm:^19.2.7, react-is@npm:^19.2.8":
+  version: 19.2.8
+  resolution: "react-is@npm:19.2.8"
+  checksum: 10/09d053ff36e0ba4d47164baf9eab1c7772791f0371aa92281f0e547e0f6a5a5c8a1eb939aadd1a08b3c565958dd63ee59c746b6ac0d5ccb14ad742ac0314ab15
+  languageName: node
+  linkType: hard
+
 "react-refractor@npm:^4.0.0":
   version: 4.0.0
   resolution: "react-refractor@npm:4.0.0"
@@ -11217,7 +11569,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-rx@npm:^6.0.0":
+"react-rx@npm:^6.0.0, react-rx@npm:^6.0.1":
   version: 6.1.0
   resolution: "react-rx@npm:6.1.0"
   dependencies:
@@ -11229,10 +11581,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:19.2.8, react@npm:^19.2.7":
-  version: 19.2.8
-  resolution: "react@npm:19.2.8"
-  checksum: 10/a3c697798035e295ca9e51591d3a8700824535cb8c070fac1f8abbe69717ceb99108cbc4ba7b31a606806f336b1eba705705f63b9d39ace198fe51e8990ac843
+"react@npm:19.3.0":
+  version: 19.3.0
+  resolution: "react@npm:19.3.0"
+  checksum: 10/e98669f09750c41abb1bf020af67cc847e018c91a8c5413d3f40ddd737e3daef6e419bcd1521b113fda73fd667ae82d5f0e9d9e3ff462faeb82059c09e7f04b1
   languageName: node
   linkType: hard
 
@@ -11240,6 +11592,13 @@ __metadata:
   version: 19.2.4
   resolution: "react@npm:19.2.4"
   checksum: 10/18179fe217f67eb2d0bc61cd04e7ad3c282ea09a1dface7eacd71816f62609f4bbf566c447c704335284deb8397b00bca084e0cd60e6f437279a7498e2d0bfe0
+  languageName: node
+  linkType: hard
+
+"react@npm:^19.2.7":
+  version: 19.2.8
+  resolution: "react@npm:19.2.8"
+  checksum: 10/a3c697798035e295ca9e51591d3a8700824535cb8c070fac1f8abbe69717ceb99108cbc4ba7b31a606806f336b1eba705705f63b9d39ace198fe51e8990ac843
   languageName: node
   linkType: hard
 
@@ -11551,6 +11910,64 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rolldown@npm:~1.2.6":
+  version: 1.2.8
+  resolution: "rolldown@npm:1.2.8"
+  dependencies:
+    "@oxc-project/types": "npm:=0.149.0"
+    "@rolldown/binding-android-arm-eabi": "npm:1.2.8"
+    "@rolldown/binding-android-arm64": "npm:1.2.8"
+    "@rolldown/binding-darwin-arm64": "npm:1.2.8"
+    "@rolldown/binding-darwin-x64": "npm:1.2.8"
+    "@rolldown/binding-freebsd-x64": "npm:1.2.8"
+    "@rolldown/binding-linux-arm-gnueabihf": "npm:1.2.8"
+    "@rolldown/binding-linux-arm64-gnu": "npm:1.2.8"
+    "@rolldown/binding-linux-arm64-musl": "npm:1.2.8"
+    "@rolldown/binding-linux-ppc64-gnu": "npm:1.2.8"
+    "@rolldown/binding-linux-s390x-gnu": "npm:1.2.8"
+    "@rolldown/binding-linux-x64-gnu": "npm:1.2.8"
+    "@rolldown/binding-linux-x64-musl": "npm:1.2.8"
+    "@rolldown/binding-openharmony-arm64": "npm:1.2.8"
+    "@rolldown/binding-win32-arm64-msvc": "npm:1.2.8"
+    "@rolldown/binding-win32-x64-msvc": "npm:1.2.8"
+    "@rolldown/pluginutils": "npm:^1.0.0"
+  dependenciesMeta:
+    "@rolldown/binding-android-arm-eabi":
+      optional: true
+    "@rolldown/binding-android-arm64":
+      optional: true
+    "@rolldown/binding-darwin-arm64":
+      optional: true
+    "@rolldown/binding-darwin-x64":
+      optional: true
+    "@rolldown/binding-freebsd-x64":
+      optional: true
+    "@rolldown/binding-linux-arm-gnueabihf":
+      optional: true
+    "@rolldown/binding-linux-arm64-gnu":
+      optional: true
+    "@rolldown/binding-linux-arm64-musl":
+      optional: true
+    "@rolldown/binding-linux-ppc64-gnu":
+      optional: true
+    "@rolldown/binding-linux-s390x-gnu":
+      optional: true
+    "@rolldown/binding-linux-x64-gnu":
+      optional: true
+    "@rolldown/binding-linux-x64-musl":
+      optional: true
+    "@rolldown/binding-openharmony-arm64":
+      optional: true
+    "@rolldown/binding-win32-arm64-msvc":
+      optional: true
+    "@rolldown/binding-win32-x64-msvc":
+      optional: true
+  bin:
+    rolldown: ./bin/cli.mjs
+  checksum: 10/7260c1f3d6ee32358f110a425174ae44df9383957cf2364195db371ab407ed3dced45afe14a86556df551fba4efbe073ef53fb994ffd8c5d517754ec55c872b0
+  languageName: node
+  linkType: hard
+
 "root-workspace-0b6124@workspace:.":
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
@@ -11758,6 +12175,13 @@ __metadata:
   version: 0.27.0
   resolution: "scheduler@npm:0.27.0"
   checksum: 10/eab3c3a8373195173e59c147224fc30dabe6dd453f248f5e610e8458512a5a2ee3a06465dc400ebfe6d35c9f5b7f3bb6b2e41c88c86fd177c25a73e7286a1e06
+  languageName: node
+  linkType: hard
+
+"scheduler@npm:^0.28.0":
+  version: 0.28.0
+  resolution: "scheduler@npm:0.28.0"
+  checksum: 10/2a936a3729df438bd42e6af7a16a62b83543796209c9d2e637f3d7b198bd5c25c5909478a9da4f66923d290e01997816338cf740587c440448863783bd33d31d
   languageName: node
   linkType: hard
 
@@ -12597,6 +13021,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ui5@npm:@sanity/ui@5.0.0-alpha.10":
+  version: 5.0.0-alpha.10
+  resolution: "@sanity/ui@npm:5.0.0-alpha.10"
+  dependencies:
+    "@sanity-labs/design-tokens": "npm:0.0.2-alpha.4"
+    "@sanity/icons": "npm:^5.2.1"
+    clsx: "npm:^2.1.1"
+    comment-json: "npm:^5.0.0"
+    dialog-closedby-polyfill: "npm:^1.3.0"
+    interestfor: "npm:^1.0.8"
+    react-refractor: "npm:^4.0.0"
+  peerDependencies:
+    react: ^19.2
+    react-dom: ^19.2
+  bin:
+    sanity-ui: ./bin/sanity-ui.js
+  checksum: 10/8a6398546aadd850f89a58fad64cb79b19b0aef38ba7b91165de0c6305809dba2796c3b3933dcaad95be9e9c1a4ede708023fe82161c89cb2e9fc85a10b4ef58
+  languageName: node
+  linkType: hard
+
 "ui5@npm:@sanity/ui@5.0.0-alpha.8":
   version: 5.0.0-alpha.8
   resolution: "@sanity/ui@npm:5.0.0-alpha.8"
@@ -12954,7 +13398,64 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:8.2.2, vite@npm:^8.0.0, vite@npm:^8.2.0, vite@npm:^8.2.1, vite@npm:^8.2.2":
+"vite@npm:8.3.0":
+  version: 8.3.0
+  resolution: "vite@npm:8.3.0"
+  dependencies:
+    fsevents: "npm:~2.3.3"
+    lightningcss: "npm:^1.33.0"
+    picomatch: "npm:^4.0.7"
+    postcss: "npm:^8.5.28"
+    rolldown: "npm:~1.2.6"
+    tinyglobby: "npm:^0.2.17"
+  peerDependencies:
+    "@types/node": ^20.19.0 || >=22.12.0
+    "@vitejs/devtools": ^0.7.1
+    esbuild: ^0.27.0 || ^0.28.0
+    jiti: ">=1.21.0"
+    less: ^4.0.0
+    sass: ^1.70.0
+    sass-embedded: ^1.70.0
+    stylus: ">=0.54.8"
+    sugarss: ^5.0.0
+    terser: ^5.16.0
+    tsx: ^4.8.1
+    yaml: ^2.4.2
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  peerDependenciesMeta:
+    "@types/node":
+      optional: true
+    "@vitejs/devtools":
+      optional: true
+    esbuild:
+      optional: true
+    jiti:
+      optional: true
+    less:
+      optional: true
+    sass:
+      optional: true
+    sass-embedded:
+      optional: true
+    stylus:
+      optional: true
+    sugarss:
+      optional: true
+    terser:
+      optional: true
+    tsx:
+      optional: true
+    yaml:
+      optional: true
+  bin:
+    vite: bin/vite.js
+  checksum: 10/7f373449d1189c6b54c24555aab260afb0863e864a7f4a0b52e59dbbe86e4166ee6e82c3b4ab82cb00b38a5f0922ab665cf2dcfb5c7fb6a31812cc71a456fe72
+  languageName: node
+  linkType: hard
+
+"vite@npm:^8.0.0, vite@npm:^8.2.0, vite@npm:^8.2.1, vite@npm:^8.2.2":
   version: 8.2.2
   resolution: "vite@npm:8.2.2"
   dependencies:
