@@ -59,7 +59,7 @@ dependencies {
     implementation("com.google.cloud.sql:postgres-socket-factory:1.30.0")
     implementation("org.flywaydb:flyway-core:12.6.1")
     implementation("org.flywaydb:flyway-database-postgresql:12.6.1")
-    implementation("com.github.ben-manes.caffeine:caffeine:3.2.4")
+    implementation("com.github.ben-manes.caffeine:caffeine:3.3.0")
     implementation("com.launchdarkly:okhttp-eventsource:4.3.0")
     testImplementation("io.ktor:ktor-server-tests:$ktor_version")
     testImplementation("org.jetbrains.kotlin:kotlin-test:$kotlin_version")
