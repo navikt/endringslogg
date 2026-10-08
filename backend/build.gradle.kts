@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 val ktor_version = "2.3.13"
 val kotlin_version="2.4.20"
-val logback_version="1.6.3"
+val logback_version="1.6.4"
 val logstash_encoder_version="9.0"
 val exposed_version="1.5.0"
 val hikaricp_version = "7.1.0"
@@ -59,11 +59,11 @@ dependencies {
     implementation("com.google.cloud.sql:postgres-socket-factory:1.30.0")
     implementation("org.flywaydb:flyway-core:12.6.1")
     implementation("org.flywaydb:flyway-database-postgresql:12.6.1")
-    implementation("com.github.ben-manes.caffeine:caffeine:3.2.4")
+    implementation("com.github.ben-manes.caffeine:caffeine:3.3.0")
     implementation("com.launchdarkly:okhttp-eventsource:4.3.0")
     testImplementation("io.ktor:ktor-server-tests:$ktor_version")
     testImplementation("org.jetbrains.kotlin:kotlin-test:$kotlin_version")
-    testImplementation("com.h2database:h2:2.5.250")
+    testImplementation("com.h2database:h2:2.5.252")
 }
 
 
