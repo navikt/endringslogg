@@ -47,10 +47,10 @@
         "eslint-plugin-react-hooks": "7.1.1",
         "react": "19.3.0",
         "react-dom": "19.3.0",
-        "storybook": "10.6.1",
+        "storybook": "10.6.2",
         "typescript": "6.0.3",
         "typescript-eslint": "8.71.1",
-        "vite": "8.3.4"
+        "vite": "8.3.5"
     },
     "peerDependencies": {
         "@navikt/aksel-icons": "8.x",
