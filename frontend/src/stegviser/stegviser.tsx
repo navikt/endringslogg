@@ -1,5 +1,4 @@
 import * as React from 'react';
-import classNames from 'classnames';
 import './stegviser.css';
 
 interface StegviserProps {
@@ -12,9 +11,7 @@ const Stegviser = (props: StegviserProps) => {
         return new Array(antall).fill(0).map((_, i) => (
             <div
                 key={i}
-                className={classNames('stegviser__steg', {
-                    'stegviser__steg--selected': i === selectedIdx,
-                })}
+                className={`stegviser__steg${i === selectedIdx ? ' stegviser__steg--selected' : ''}`}
             />
         ));
     };

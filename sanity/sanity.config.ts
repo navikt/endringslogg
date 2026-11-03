@@ -1,6 +1,5 @@
 import {defineConfig} from 'sanity'
 import {schemaTypes} from './schemas/schema'
-import {visionTool} from '@sanity/vision'
 import {NavLogo} from './components/NavLogo'
 import {structureTool} from 'sanity/structure'
 import {DATASET, PROJECT_ID} from './constants'
@@ -24,15 +23,7 @@ export default defineConfig({
     title: 'Prod',
     projectId: PROJECT_ID,
     dataset: DATASET,
-    plugins: [
-        structureTool({}), visionTool(),
-    ],
-    tools: (prev) => {
-        if (import.meta.env?.DEV) {
-            return prev
-        }
-        return prev.filter((tool) => tool.name !== 'vision')
-    },
+    plugins: [structureTool({})],
     schema: {
         types: schemaTypes,
     },
