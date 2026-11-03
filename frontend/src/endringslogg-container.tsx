@@ -5,7 +5,6 @@ import TransitionContainer from './transition-container';
 import { useEventListener } from './hooks/use-event-listener';
 import { EndringsloggEntryWithSeenStatus } from './utils/endringslogg-custom';
 import './endringslogg.css';
-import classNames from 'classnames';
 import { Heading, Label } from '@navikt/ds-react';
 
 interface EndringsloggContainerProps {
@@ -112,11 +111,7 @@ const EndringsloggIconButton = (props: EndringsloggIconButtonProps) => {
         <button
             aria-label={`Endringslogg for ${props.name}`}
             ref={props.buttonRef}
-            className={classNames(
-                'endringslogg-knapp',
-                'endringslogg-dropDown',
-                props.open && 'endringslogg-dropDown-active',
-            )}
+            className={`endringslogg-knapp endringslogg-dropDown${props.open ? ' endringslogg-dropDown-active' : ''}`}
             onClick={props.onClick}
             data-testid="endringslogg-knapp"
         >

@@ -1,6 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import Endringslogg from './src';
-import { EndringsloggEntryWithSeenStatus } from './src/utils/endringslogg-custom';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import '@navikt/ds-css';
+import Endringslogg from '../src';
+import { EndringsloggEntryWithSeenStatus } from '../src/utils/endringslogg-custom';
 
 const toPortableText = (text: string) => [
     {
@@ -70,46 +72,37 @@ const withModalMockData: EndringsloggEntryWithSeenStatus[] = [
     ...buildMockEntries(10),
 ];
 
-const meta: Meta<typeof Endringslogg> = {
-    title: 'Komponenter/Endringslogg',
-    component: Endringslogg,
-    args: {
-        userId: 'storybook-user',
-        appId: 'ENDRINGSLOGG',
-        appName: 'Endringslogg demo',
-        backendUrl: 'https://example.invalid',
-        localData: shortMockData,
-    },
+const baseProps = {
+    userId: 'playground-user',
+    appId: 'ENDRINGSLOGG',
+    appName: 'Endringslogg demo',
+    backendUrl: 'https://example.invalid',
 };
 
-export default meta;
+const Variant = ({ title, children }: { title: string; children: React.ReactNode }) => (
+    <section style={{ marginBottom: '3rem' }}>
+        <h2>{title}</h2>
+        <div style={{ position: 'relative' }}>{children}</div>
+    </section>
+);
 
-type Story = StoryObj<typeof Endringslogg>;
-
-export const Standard: Story = {};
-
-export const MangeMockData: Story = {
-    args: {
-        localData: largeMockData,
-    },
-};
-
-export const MedModalOgLenker: Story = {
-    args: {
-        localData: withModalMockData,
-    },
-};
-
-export const LysVariant: Story = {
-    args: {
-        stil: 'lys',
-        localData: shortMockData,
-    },
-    decorators: [
-        StoryComponent => (
-            <div style={{ backgroundColor: '#1f2937', padding: '2rem' }}>
-                <StoryComponent />
-            </div>
-        ),
-    ],
-};
+createRoot(document.getElementById('root')!).render(
+    <StrictMode>
+        <div style={{ padding: '2rem' }}>
+            <Variant title="Standard">
+                <Endringslogg {...baseProps} localData={shortMockData} />
+            </Variant>
+            <Variant title="Mange mock-data">
+                <Endringslogg {...baseProps} localData={largeMockData} />
+            </Variant>
+            <Variant title="Med modal og lenker">
+                <Endringslogg {...baseProps} localData={withModalMockData} />
+            </Variant>
+            <Variant title="Lys variant">
+                <div style={{ backgroundColor: '#1f2937', padding: '2rem' }}>
+                    <Endringslogg {...baseProps} stil="lys" localData={shortMockData} />
+                </div>
+            </Variant>
+        </div>
+    </StrictMode>,
+);

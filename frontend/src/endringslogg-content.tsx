@@ -1,4 +1,3 @@
-import classNames from 'classnames/dedupe';
 import React from 'react';
 import { EndringsloggEntryWithSeenStatus } from './utils/endringslogg-custom';
 import './endringslogg.css';
@@ -47,18 +46,16 @@ export interface EndringsloggEntryProps {
 const EndringsloggEntry = (props: EndringsloggEntryProps) => {
     const { dataset, endring } = props;
     return (
-        <div className={classNames('endringslogg-rad', 'endringslogg-skille')}>
+        <div className="endringslogg-rad endringslogg-skille">
             <div className={'endringslogg-datolinje'}>
                 <div
                     role={endring.seen ? 'alert' : ''}
                     aria-label={endring.seen ? 'Nye endringer i Arbeidsrettet oppfølging' : ''}
-                    className={classNames('endringslogg-info-kolonne', {
-                        'endringslogg-info-nye-notifikasjoner': !endring.seen,
-                    })}
+                    className={`endringslogg-info-kolonne${endring.seen ? '' : ' endringslogg-info-nye-notifikasjoner'}`}
                 />
                 <Label size={'small'}>{isoTimeStringToDate(endring.date!)}</Label>
             </div>
-            <div className={classNames('endringslogg-innhold', 'endringslogg-kolonne')}>
+            <div className="endringslogg-innhold endringslogg-kolonne">
                 <Heading size="small" level="2">
                     {endring.title}
                 </Heading>

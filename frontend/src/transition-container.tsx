@@ -2,7 +2,6 @@ import React from 'react';
 import { useFocus } from './hooks/use-focus';
 import './endringslogg.css';
 import './collapse-container-transition.css';
-import classNames from 'classnames';
 
 interface CollapseContainerProps {
     children?: React.ReactNode;
@@ -25,13 +24,9 @@ const CollapseContainer = (props: CollapseContainerProps) => {
     const { focusRef } = useFocus();
     return (
         <div
-            className={classNames(
-                props.alignLeft && 'align-left',
-                props.visible
-                    ? 'collapse-container-enter-active'
-                    : 'collapse-container-exit-active',
-                'collapse-container',
-            )}
+            className={`${props.alignLeft ? 'align-left ' : ''}${
+                props.visible ? 'collapse-container-enter-active' : 'collapse-container-exit-active'
+            } collapse-container`}
         >
             <div
                 className={props.alignLeft ? 'arrow-container-left' : 'arrow-container'}

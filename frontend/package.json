@@ -22,32 +22,25 @@
     "scripts": {
         "build": "yarn run clean && yarn run copy-css && yarn run tsc",
         "clean": "rm -rf ./dist",
-        "copy-css": "copyfiles -u 1 \"src/**/*.css\" dist",
-        "lint": "eslint src",
-        "storybook": "storybook dev -p 6006",
-        "build-storybook": "storybook build",
+        "copy-css": "node scripts/copy-css.mjs",
+        "lint": "eslint src playground && tsc -p playground",
+        "dev": "vite playground",
         "tsc": "tsc -p tsconfig.json"
     },
     "dependencies": {
-        "@portabletext/react": "8.0.1",
-        "classnames": "2.5.1"
+        "@portabletext/react": "8.0.1"
     },
     "devDependencies": {
         "@eslint/js": "10.0.1",
         "@navikt/aksel-icons": "8.19.2",
         "@navikt/ds-css": "8.19.2",
         "@navikt/ds-react": "8.19.2",
-        "@storybook/addon-essentials": "8.6.14",
-        "@storybook/react-vite": "10.6.2",
         "@types/react": "19.3.0",
         "@types/react-dom": "19.3.0",
-        "copyfiles": "2.4.1",
         "eslint": "10.13.0",
-        "eslint-config-prettier": "10.1.8",
         "eslint-plugin-react-hooks": "7.1.1",
         "react": "19.3.1",
         "react-dom": "19.3.1",
-        "storybook": "10.6.3",
         "typescript": "6.0.3",
         "typescript-eslint": "8.71.2",
         "vite": "8.3.4"
