@@ -12,7 +12,6 @@ import org.jetbrains.exposed.v1.jdbc.batchInsert
 import org.jetbrains.exposed.v1.jdbc.insert
 import org.jetbrains.exposed.v1.jdbc.selectAll
 import org.jetbrains.exposed.v1.jdbc.transactions.transaction
-import org.jetbrains.exposed.v1.jdbc.update
 import java.security.MessageDigest
 import java.time.Instant
 import java.time.temporal.ChronoUnit
@@ -101,20 +100,6 @@ fun insertSeenForcedEntries(
         this[SeenForced.documentId] = docId
     }
 }
-
-fun setModalOpen(docId: String) =
-    transaction {
-        Seen.update({ Seen.documentId eq UUID.fromString(docId) }) {
-            it[Seen.openedModal] = true
-        }
-    }
-
-fun setLinkClicked(docId: String) =
-    transaction {
-        Seen.update({ Seen.documentId eq UUID.fromString(docId) }) {
-            it[Seen.openedLink] = true
-        }
-    }
 
 fun insertSessionDuration(session: SessionDuration) =
     transaction {
