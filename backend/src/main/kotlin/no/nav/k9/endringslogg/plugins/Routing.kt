@@ -156,7 +156,7 @@ private suspend fun PipelineContext<Unit, ApplicationCall>.fetchEndringslogger(
     }
 }
 
-private fun harForcedModal(endring: Endring): Boolean {
+internal fun harForcedModal(endring: Endring): Boolean {
     val dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
 
     val utløpsdatoSattISanity = endring.expiryDate?.let { datoString -> LocalDate.parse(datoString, dateTimeFormatter) }

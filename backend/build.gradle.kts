@@ -48,22 +48,18 @@ dependencies {
     implementation("io.ktor:ktor-client-cio:$ktor_version")
     implementation("ch.qos.logback:logback-classic:$logback_version")
     implementation("net.logstash.logback:logstash-logback-encoder:$logstash_encoder_version")
-    implementation("io.ktor:ktor-serialization:$ktor_version")
-    implementation("io.ktor:ktor-client-serialization:$ktor_version")
     implementation("org.jetbrains.exposed:exposed-core:$exposed_version")
-    implementation("org.jetbrains.exposed:exposed-dao:$exposed_version")
     implementation("org.jetbrains.exposed:exposed-jdbc:$exposed_version")
     implementation("org.jetbrains.exposed:exposed-java-time:$exposed_version")
     implementation("com.zaxxer:HikariCP:$hikaricp_version")
     implementation("org.postgresql:postgresql:42.7.14")
-    implementation("com.google.cloud.sql:postgres-socket-factory:1.30.0")
     implementation("org.flywaydb:flyway-core:12.6.1")
     implementation("org.flywaydb:flyway-database-postgresql:12.6.1")
     implementation("com.github.ben-manes.caffeine:caffeine:3.3.0")
     implementation("com.launchdarkly:okhttp-eventsource:4.3.0")
     testImplementation("io.ktor:ktor-server-tests:$ktor_version")
     testImplementation("org.jetbrains.kotlin:kotlin-test:$kotlin_version")
-    testImplementation("com.h2database:h2:2.5.252")
+    testImplementation("org.testcontainers:testcontainers-postgresql:2.0.5")
 }
 
 
@@ -110,7 +106,7 @@ tasks{
 }
 
 tasks.withType<Test>().configureEach {
-    failOnNoDiscoveredTests.set(false)
+    useJUnitPlatform()
 }
 
 tasks.named<org.cyclonedx.gradle.CyclonedxDirectTask>("cyclonedxDirectBom") {
