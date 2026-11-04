@@ -142,7 +142,10 @@ private suspend fun PipelineContext<Unit, ApplicationCall>.fetchEndringslogger(
     }
 }
 
-internal fun harForcedModal(endring: Endring): Boolean {
+internal fun harForcedModal(
+    endring: Endring,
+    iDag: LocalDate = LocalDate.now(),
+): Boolean {
     val dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
 
     val utløpsdato =
@@ -150,7 +153,7 @@ internal fun harForcedModal(endring: Endring): Boolean {
             ?: endring.date?.let { LocalDate.parse(it, dateTimeFormatter).plusMonths(1) }
             ?: return false
 
-    val utløpt = LocalDate.now().isAfter(utløpsdato)
+    val utløpt = iDag.isAfter(utløpsdato)
 
     val forcedModal = endring.modal?.forcedModal ?: false
     return forcedModal && !utløpt
