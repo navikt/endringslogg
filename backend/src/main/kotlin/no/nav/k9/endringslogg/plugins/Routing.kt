@@ -37,12 +37,6 @@ import java.util.UUID
 
 val logger: Logger = LoggerFactory.getLogger("no.nav.k9.endringslogg.routing")
 
-internal val gyldigAppId = Regex("^[A-Za-z0-9_]{1,64}$")
-internal val gyldigDataset = Regex("^[a-z0-9][a-z0-9_-]{0,63}$")
-internal val gyldigBildeRef = Regex("^image-[A-Za-z0-9]+-[0-9]+x[0-9]+-[a-z]+$")
-
-private fun validerDataset(dataset: String) = require(gyldigDataset.matches(dataset)) { "Ugyldig dataset" }
-
 fun Application.configureRouting(client: SanityClient) {
     routing {
         get("/isAlive") {
@@ -82,8 +76,6 @@ fun Application.configureRouting(client: SanityClient) {
 
 private suspend fun PipelineContext<Unit, ApplicationCall>.fetchImage(client: SanityClient) {
     val (slideImageRef, dataSet) = call.receive<BildeData>()
-    validerDataset(dataSet)
-    require(gyldigBildeRef.matches(slideImageRef)) { "Ugyldig slideImageRef" }
 
     when (val result = client.fetchImage(slideImageRef, dataSet)) {
         is Ok -> call.respond(mapOf("slideImage" to Json.encodeToJsonElement(result.value.slideImage.encodeBase64())))
@@ -107,8 +99,6 @@ private suspend fun PipelineContext<Unit, ApplicationCall>.fetchEndringslogger(
     withImages: Boolean,
 ) {
     val (userId, appId, dataset, maxEntries) = call.receive<BrukerData>()
-    require(gyldigAppId.matches(appId)) { "Ugyldig appId" }
-    validerDataset(dataset)
     val seenEntryIds = getSeenEntriesForUser(userId).map(UUID::toString).toSet()
     val seenForcedEntryIds = getSeenForcedEntriesForUser(userId).map(UUID::toString).toSet()
 
