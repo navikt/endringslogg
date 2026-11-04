@@ -11,13 +11,13 @@ class ForcedModalTest {
     private val iDag = LocalDate.now()
 
     private fun endring(
-        date: LocalDate,
+        date: LocalDate?,
         expiryDate: LocalDate? = null,
         modal: Modal? = Modal("Nyhet", forcedModal = true, slides = emptyList()),
     ) = Endring(
         title = "Endring",
         description = JsonArray(emptyList()),
-        date = date.toString(),
+        date = date?.toString(),
         expiryDate = expiryDate?.toString(),
         id = "id",
         modal = modal,
@@ -48,5 +48,16 @@ class ForcedModalTest {
     @Test
     fun `endring uten modal er ikke tvungen`() {
         assertFalse(harForcedModal(endring(date = iDag, modal = null)))
+    }
+
+    @Test
+    fun `endring uten dato bruker utløpsdato hvis den finnes`() {
+        assertTrue(harForcedModal(endring(date = null, expiryDate = iDag.plusDays(1))))
+        assertFalse(harForcedModal(endring(date = null, expiryDate = iDag.minusDays(1))))
+    }
+
+    @Test
+    fun `endring uten dato og utløpsdato er ikke tvungen`() {
+        assertFalse(harForcedModal(endring(date = null)))
     }
 }

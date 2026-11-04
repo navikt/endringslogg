@@ -1,7 +1,6 @@
 package no.nav.k9.endringslogg
 
 import SanityClient
-import io.ktor.client.request.patch
 import io.ktor.client.request.post
 import io.ktor.client.request.setBody
 import io.ktor.http.ContentType
@@ -10,8 +9,6 @@ import io.ktor.http.contentType
 import io.ktor.server.testing.ApplicationTestBuilder
 import io.ktor.server.testing.testApplication
 import no.nav.k9.endringslogg.plugins.configureRouting
-import org.jetbrains.exposed.v1.jdbc.selectAll
-import org.jetbrains.exposed.v1.jdbc.transactions.transaction
 import java.util.UUID
 import kotlin.test.BeforeTest
 import kotlin.test.Test
@@ -59,22 +56,5 @@ class AnalyticsRoutesTest {
 
             assertEquals(HttpStatusCode.OK, response.status)
             assertEquals(listOf(doc), getSeenForcedEntriesForUser("Z111111"))
-        }
-
-    @Test
-    fun `markerer at modal er åpnet`() =
-        testApplication {
-            app()
-            val doc = UUID.randomUUID()
-            insertSeenEntries("Z111111", "K9", listOf(doc))
-
-            val response =
-                client.patch("/analytics/modal-open") {
-                    contentType(ContentType.Application.Json)
-                    setBody("""{"documentId":"$doc"}""")
-                }
-
-            assertEquals(HttpStatusCode.OK, response.status)
-            assertEquals(listOf(true), transaction { Seen.selectAll().map { it[Seen.openedModal] } })
         }
 }

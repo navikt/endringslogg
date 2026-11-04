@@ -10,7 +10,6 @@ import io.ktor.server.application.call
 import io.ktor.server.request.receive
 import io.ktor.server.response.respond
 import io.ktor.server.routing.get
-import io.ktor.server.routing.patch
 import io.ktor.server.routing.post
 import io.ktor.server.routing.routing
 import io.ktor.util.encodeBase64
@@ -19,7 +18,6 @@ import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.encodeToJsonElement
 import no.nav.k9.endringslogg.BildeData
 import no.nav.k9.endringslogg.BrukerData
-import no.nav.k9.endringslogg.DocumentId
 import no.nav.k9.endringslogg.Endring
 import no.nav.k9.endringslogg.SeenForcedStatus
 import no.nav.k9.endringslogg.SeenStatus
@@ -30,8 +28,6 @@ import no.nav.k9.endringslogg.getSeenForcedEntriesForUser
 import no.nav.k9.endringslogg.insertSeenEntries
 import no.nav.k9.endringslogg.insertSeenForcedEntries
 import no.nav.k9.endringslogg.insertSessionDuration
-import no.nav.k9.endringslogg.setLinkClicked
-import no.nav.k9.endringslogg.setModalOpen
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import java.net.URLEncoder
@@ -40,6 +36,12 @@ import java.time.format.DateTimeFormatter
 import java.util.UUID
 
 val logger: Logger = LoggerFactory.getLogger("no.nav.k9.endringslogg.routing")
+
+internal val gyldigAppId = Regex("^[A-Za-z0-9_]{1,64}$")
+internal val gyldigDataset = Regex("^[a-z0-9][a-z0-9_-]{0,63}$")
+internal val gyldigBildeRef = Regex("^image-[A-Za-z0-9]+-[0-9]+x[0-9]+-[a-z]+$")
+
+private fun validerDataset(dataset: String) = require(gyldigDataset.matches(dataset)) { "Ugyldig dataset" }
 
 fun Application.configureRouting(client: SanityClient) {
     routing {
@@ -75,21 +77,13 @@ fun Application.configureRouting(client: SanityClient) {
             insertSessionDuration(duration)
             call.respond(HttpStatusCode.OK)
         }
-        patch("/analytics/modal-open") {
-            val id = call.receive<DocumentId>()
-            setModalOpen(id.documentId)
-            call.respond(HttpStatusCode.OK)
-        }
-        patch("/analytics/link-click") {
-            val id = call.receive<DocumentId>()
-            setLinkClicked(id.documentId)
-            call.respond(HttpStatusCode.OK)
-        }
     }
 }
 
 private suspend fun PipelineContext<Unit, ApplicationCall>.fetchImage(client: SanityClient) {
     val (slideImageRef, dataSet) = call.receive<BildeData>()
+    validerDataset(dataSet)
+    require(gyldigBildeRef.matches(slideImageRef)) { "Ugyldig slideImageRef" }
 
     when (val result = client.fetchImage(slideImageRef, dataSet)) {
         is Ok -> call.respond(mapOf("slideImage" to Json.encodeToJsonElement(result.value.slideImage.encodeBase64())))
@@ -113,6 +107,8 @@ private suspend fun PipelineContext<Unit, ApplicationCall>.fetchEndringslogger(
     withImages: Boolean,
 ) {
     val (userId, appId, dataset, maxEntries) = call.receive<BrukerData>()
+    require(gyldigAppId.matches(appId)) { "Ugyldig appId" }
+    validerDataset(dataset)
     val seenEntryIds = getSeenEntriesForUser(userId).map(UUID::toString).toSet()
     val seenForcedEntryIds = getSeenForcedEntriesForUser(userId).map(UUID::toString).toSet()
 
@@ -159,10 +155,10 @@ private suspend fun PipelineContext<Unit, ApplicationCall>.fetchEndringslogger(
 internal fun harForcedModal(endring: Endring): Boolean {
     val dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
 
-    val utløpsdatoSattISanity = endring.expiryDate?.let { datoString -> LocalDate.parse(datoString, dateTimeFormatter) }
-    val endringsloggLansertDato = LocalDate.parse(endring.date, dateTimeFormatter)
-
-    val utløpsdato = utløpsdatoSattISanity ?: endringsloggLansertDato.plusMonths(1)
+    val utløpsdato =
+        endring.expiryDate?.let { LocalDate.parse(it, dateTimeFormatter) }
+            ?: endring.date?.let { LocalDate.parse(it, dateTimeFormatter).plusMonths(1) }
+            ?: return false
 
     val utløpt = LocalDate.now().isAfter(utløpsdato)
 
