@@ -10,7 +10,6 @@ import io.ktor.server.application.call
 import io.ktor.server.request.receive
 import io.ktor.server.response.respond
 import io.ktor.server.routing.get
-import io.ktor.server.routing.patch
 import io.ktor.server.routing.post
 import io.ktor.server.routing.routing
 import io.ktor.util.encodeBase64
@@ -21,7 +20,6 @@ import kotlinx.serialization.json.encodeToJsonElement
 import lagGroqQueryString
 import no.nav.k9.endringslogg.BildeData
 import no.nav.k9.endringslogg.BrukerData
-import no.nav.k9.endringslogg.DocumentId
 import no.nav.k9.endringslogg.Endring
 import no.nav.k9.endringslogg.SeenForcedStatus
 import no.nav.k9.endringslogg.SeenStatus
@@ -32,8 +30,6 @@ import no.nav.k9.endringslogg.getSeenForcedEntriesForUser
 import no.nav.k9.endringslogg.insertSeenEntries
 import no.nav.k9.endringslogg.insertSeenForcedEntries
 import no.nav.k9.endringslogg.insertSessionDuration
-import no.nav.k9.endringslogg.setLinkClicked
-import no.nav.k9.endringslogg.setModalOpen
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import java.time.LocalDate
@@ -98,16 +94,6 @@ fun Application.configureRouting(client: SanityClient) {
         post("/analytics/session-duration") {
             val duration = call.receive<SessionDuration>()
             insertSessionDuration(duration)
-            call.respond(HttpStatusCode.OK)
-        }
-        patch("/analytics/modal-open") {
-            val id = call.receive<DocumentId>()
-            setModalOpen(id.documentId)
-            call.respond(HttpStatusCode.OK)
-        }
-        patch("/analytics/link-click") {
-            val id = call.receive<DocumentId>()
-            setLinkClicked(id.documentId)
             call.respond(HttpStatusCode.OK)
         }
     }

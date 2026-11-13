@@ -54,7 +54,6 @@ fun Application.main() {
         allowMethod(HttpMethod.Options)
         allowMethod(HttpMethod.Get)
         allowMethod(HttpMethod.Post)
-        allowMethod(HttpMethod.Patch)
         allowHeader(HttpHeaders.ContentType)
     }
 }
