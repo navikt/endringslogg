@@ -12,11 +12,13 @@ import io.ktor.client.call.body
 import io.ktor.client.engine.cio.CIO
 import io.ktor.client.plugins.ClientRequestException
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.client.request.bearerAuth
 import io.ktor.client.request.get
 import io.ktor.client.statement.HttpResponse
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonElement
 import no.nav.k9.endringslogg.EndringJson
 import no.nav.k9.endringslogg.SlideImageDl
 import no.nav.k9.endringslogg.SlideImageJson
@@ -24,6 +26,7 @@ import no.nav.k9.endringslogg.SubscribedApp
 import okhttp3.internal.http2.StreamResetException
 import org.slf4j.LoggerFactory
 import java.net.URI
+import java.net.URLEncoder
 import java.time.Clock
 import java.time.DayOfWeek
 import java.time.Duration
@@ -40,9 +43,20 @@ class Ok<out T>(val value: T) : Result<T, Nothing>()
 
 class Err<out E>(val error: E) : Result<Nothing, E>()
 
+// Verdiene sendes som GROQ-parametere slik at input fra klienten ikke kan endre selve spørringen.
+fun lagGroqQueryString(
+    query: String,
+    params: Map<String, JsonElement>,
+): String =
+    (listOf("query" to query) + params.map { (navn, verdi) -> "\$$navn" to verdi.toString() })
+        .joinToString("&") { (navn, verdi) ->
+            "${URLEncoder.encode(navn, Charsets.UTF_8)}=${URLEncoder.encode(verdi, Charsets.UTF_8)}"
+        }
+
 class SanityClient(
     private val projId: String,
     apiVersion: String,
+    private val token: String?,
 ) {
     private val logger = LoggerFactory.getLogger(javaClass)
     private val baseUrl: String = "https://$projId.api.sanity.io/$apiVersion"
@@ -96,9 +110,9 @@ class SanityClient(
     ): EndringJson {
         val response: EndringJson
         runBlocking {
-            response = client.get("$baseUrl/data/query/$dataset?query=$queryString").body()
+            response = client.get(queryUrl(queryString, dataset)) { token?.let { bearerAuth(it) } }.body()
         }
-        val listenUrl = "$baseUrl/data/listen/$dataset?query=$queryString&includeResult=false&visibility=query"
+        val listenUrl = listenUrl(queryString, dataset)
         // call was successful. must then check if the response is empty. If empty -> don't subscribe
         if (response.result.isNotEmpty() and !subscribedApps.contains(listenUrl)) {
             subscribeToSanityApp(listenUrl, queryString, dataset)
@@ -113,7 +127,7 @@ class SanityClient(
     ): EndringJson {
         val response: EndringJson
         runBlocking {
-            response = client.get("$baseUrl/data/query/$dataset?query=$queryString").body()
+            response = client.get(queryUrl(queryString, dataset)) { token?.let { bearerAuth(it) } }.body()
         }
         val responseWithImage =
             EndringJson(
@@ -142,13 +156,24 @@ class SanityClient(
                     )
                 },
             )
-        val listenUrl = "$baseUrl/data/listen/$dataset?query=$queryString&includeResult=false&visibility=query"
+        val listenUrl = listenUrl(queryString, dataset)
         // call was successful. must then check if the response is empty. If empty -> don't subscribe
         if (response.result.isNotEmpty() and !subscribedApps.contains(listenUrl)) {
             subscribeToSanityApp(listenUrl, queryString, dataset)
         }
         return responseWithImage
     }
+
+    // Med token returnerer Sanity også utkast, så vi ber eksplisitt om publiserte dokumenter.
+    private fun queryUrl(
+        queryString: String,
+        dataset: String,
+    ) = "$baseUrl/data/query/$dataset?$queryString&perspective=published"
+
+    private fun listenUrl(
+        queryString: String,
+        dataset: String,
+    ) = "$baseUrl/data/listen/$dataset?$queryString&includeResult=false&visibility=query"
 
     private fun <V> tryCacheFirst(
         cache: Cache<String, V>,
@@ -182,10 +207,14 @@ class SanityClient(
         dataset: String,
     ) {
         val eventHandler = MessageEventHandler(listenUrl)
+        val connectStrategy =
+            HttpConnectStrategy.http(URI.create(listenUrl))
+                .readTimeout(55, TimeUnit.MINUTES)
+                .let { strategy -> token?.let { strategy.header("Authorization", "Bearer $it") } ?: strategy }
         val eventSource: BackgroundEventSource =
             BackgroundEventSource.Builder(
                 eventHandler,
-                EventSource.Builder(HttpConnectStrategy.http(URI.create(listenUrl)).readTimeout(55, TimeUnit.MINUTES)),
+                EventSource.Builder(connectStrategy),
             )
                 .connectionErrorHandler(SanityConnectionErrorHandler())
                 .build()
@@ -327,6 +356,7 @@ class SanityClient(
         dataset: String,
     ): ByteArray {
         val ref = refJson.replace("(-([A-Za-z]+))\$".toRegex(), ".\$2").drop(6)
+        // Bilder på Sanity-CDN-et er alltid offentlige, også i private datasett, så vi sender ikke token hit.
         val url = "https://cdn.sanity.io/images/$projId/$dataset/$ref"
         val httpResp: HttpResponse
         val byteArr: ByteArray

@@ -26,6 +26,10 @@ Innhold redigeres på [k9-endringslogg.sanity.studio](https://k9-endringslogg.sa
 Henter endringslogg-innhold fra Sanity og fungerer som proxy for frontend-applikasjonene.
 Lagrer hvilke endringer saksbehandlere har lest i en database.
 
+### Sanity-token
+
+Backenden leser fra Sanity med et token med lesetilgang (Viewer), slik at datasettet kan være privat. Tokenet ligger i Nais-secreten `endringslogg-read-token` som `SANITY_TOKEN`, i både dev-gcp og prod-gcp. Bilder ligger alltid åpent på `cdn.sanity.io`, også når datasettet er privat.
+
 ### Tilgang
 
 For at en frontend-applikasjon skal få tilgang må URL-en den kjører på legges inn i CORS-filteret i `backend/src/main/kotlin/no/nav/familie/Application.kt`.
@@ -33,8 +37,9 @@ For at en frontend-applikasjon skal få tilgang må URL-en den kjører på legge
 ## Ny saksbehandlingsløsning?
 
 1. Legg til ny løsning med app-id i `sanity/schemas/schema.ts`
-2. Legg inn nye URL-er i CORS-filteret i `backend/src/main/kotlin/no/nav/familie/Application.kt`
-3. Legg til nye personer i Sanity Studio som får tilgang til å redigere innhold
+2. Legg til samme app-id i `GYLDIGE_APP_IDER` i `backend/src/main/kotlin/no/nav/k9/endringslogg/plugins/Routing.kt`
+3. Legg inn nye URL-er i CORS-filteret i `backend/src/main/kotlin/no/nav/familie/Application.kt`
+4. Legg til nye personer i Sanity Studio som får tilgang til å redigere innhold
 
 ## Migrere fra familie-endringslogg?
 
