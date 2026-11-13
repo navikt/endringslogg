@@ -116,11 +116,6 @@ data class UniqueSessionsPerDay(
 )
 
 @Serializable
-data class DocumentId(
-    val documentId: String,
-)
-
-@Serializable
 data class UniqueUsersPerDay(
     val appId: String,
     val moreThanMs: String,
