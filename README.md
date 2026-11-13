@@ -28,7 +28,7 @@ Lagrer hvilke endringer saksbehandlere har lest i en database.
 
 ### Sanity-token
 
-Backenden leser fra Sanity med et token med lesetilgang (Viewer), slik at datasettet kan være privat. Tokenet ligger i Nais-secreten `endringslogg-sanity` som `SANITY_TOKEN`, i både dev-gcp og prod-gcp. Bilder ligger alltid åpent på `cdn.sanity.io`, også når datasettet er privat.
+Backenden leser fra Sanity med et token med lesetilgang (Viewer), slik at datasettet kan være privat. Tokenet ligger i Nais-secreten `endringslogg-read-token` som `SANITY_TOKEN`, i både dev-gcp og prod-gcp. Bilder ligger alltid åpent på `cdn.sanity.io`, også når datasettet er privat.
 
 ### Tilgang
 
