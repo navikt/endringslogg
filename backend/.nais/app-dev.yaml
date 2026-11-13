@@ -26,6 +26,8 @@ spec:
       destinations:
         - id: elastic
         - id: loki
+  envFrom:
+    - secret: endringslogg-read-token
   ingresses:
     - https://endringslogg.intern.dev.nav.no
   replicas:
