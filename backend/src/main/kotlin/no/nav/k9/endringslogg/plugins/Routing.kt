@@ -162,15 +162,18 @@ private suspend fun PipelineContext<Unit, ApplicationCall>.fetchEndringslogger(
     }
 }
 
-private fun harForcedModal(endring: Endring): Boolean {
+internal fun harForcedModal(
+    endring: Endring,
+    iDag: LocalDate = LocalDate.now(),
+): Boolean {
     val dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
 
-    val utløpsdatoSattISanity = endring.expiryDate?.let { datoString -> LocalDate.parse(datoString, dateTimeFormatter) }
-    val endringsloggLansertDato = LocalDate.parse(endring.date, dateTimeFormatter)
+    val utløpsdato =
+        endring.expiryDate?.let { LocalDate.parse(it, dateTimeFormatter) }
+            ?: endring.date?.let { LocalDate.parse(it, dateTimeFormatter).plusMonths(1) }
+            ?: return false
 
-    val utløpsdato = utløpsdatoSattISanity ?: endringsloggLansertDato.plusMonths(1)
-
-    val utløpt = LocalDate.now().isAfter(utløpsdato)
+    val utløpt = iDag.isAfter(utløpsdato)
 
     val forcedModal = endring.modal?.forcedModal ?: false
     return forcedModal && !utløpt
