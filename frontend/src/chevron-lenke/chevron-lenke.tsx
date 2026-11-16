@@ -1,5 +1,4 @@
 import * as React from 'react';
-import classNames from 'classnames';
 import './chevron-lenke.css';
 import { ArrowLeftIcon, ArrowRightIcon } from '@navikt/aksel-icons';
 
@@ -19,9 +18,8 @@ interface ChevronLenkeProps {
 
 const ChevronLenke = (props: ChevronLenkeProps) => {
     const { retning, tekst, onClick, hide, dataTestId } = props;
-    const clsPar = ['chevron-lenke', { 'chevron-lenke--hide': hide }];
     return (
-        <button className={classNames(clsPar)} onClick={onClick} data-testid={dataTestId}>
+        <button className={`chevron-lenke${hide ? ' chevron-lenke--hide' : ''}`} onClick={onClick} data-testid={dataTestId}>
             {retning === Direction.RIGHT ? (
                 <>
                     <span className={'chevron-lenke__tekst'} role="button">
