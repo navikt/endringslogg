@@ -23,7 +23,7 @@ class AnalyticsRoutesTest {
     private fun ApplicationTestBuilder.app() =
         application {
             main()
-            configureRouting(SanityClient("test", "v1"))
+            configureRouting(SanityClient("test", "v1", null))
         }
 
     @Test
