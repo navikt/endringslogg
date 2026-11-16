@@ -16,7 +16,9 @@ import io.ktor.server.routing.routing
 import io.ktor.util.encodeBase64
 import io.ktor.util.pipeline.PipelineContext
 import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.encodeToJsonElement
+import lagGroqQueryString
 import no.nav.k9.endringslogg.BildeData
 import no.nav.k9.endringslogg.BrukerData
 import no.nav.k9.endringslogg.DocumentId
@@ -34,12 +36,35 @@ import no.nav.k9.endringslogg.setLinkClicked
 import no.nav.k9.endringslogg.setModalOpen
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import java.net.URLEncoder
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.UUID
 
 val logger: Logger = LoggerFactory.getLogger("no.nav.k9.endringslogg.routing")
+
+// Må holdes i synk med schemaTypes i sanity/schemas/schema.ts.
+private val GYLDIGE_APP_IDER = setOf("K9_SAK", "AAP")
+private val GYLDIGE_DATASETT = setOf("production")
+private const val MAKS_ANTALL_ENDRINGER = 200
+
+private fun validerDatasett(dataset: String) = require(dataset in GYLDIGE_DATASETT) { "Ukjent dataset" }
+
+internal fun lagEndringsloggQueryString(
+    appId: String,
+    dataset: String,
+    maxEntries: Int,
+    visUpubliserte: Boolean,
+): String {
+    require(appId in GYLDIGE_APP_IDER) { "Ukjent appId" }
+    validerDatasett(dataset)
+    require(maxEntries in 1..MAKS_ANTALL_ENDRINGER) { "maxEntries må være mellom 1 og $MAKS_ANTALL_ENDRINGER" }
+
+    val filter = if (visUpubliserte) "_type == \$appId" else "_type == \$appId && publisert == true"
+    return lagGroqQueryString(
+        "*[$filter] | order(_createdAt desc)[0...\$maxEntries]",
+        mapOf("appId" to JsonPrimitive(appId), "maxEntries" to JsonPrimitive(maxEntries)),
+    )
+}
 
 fun Application.configureRouting(client: SanityClient) {
     routing {
@@ -90,6 +115,7 @@ fun Application.configureRouting(client: SanityClient) {
 
 private suspend fun PipelineContext<Unit, ApplicationCall>.fetchImage(client: SanityClient) {
     val (slideImageRef, dataSet) = call.receive<BildeData>()
+    validerDatasett(dataSet)
 
     when (val result = client.fetchImage(slideImageRef, dataSet)) {
         is Ok -> call.respond(mapOf("slideImage" to Json.encodeToJsonElement(result.value.slideImage.encodeBase64())))
@@ -113,17 +139,11 @@ private suspend fun PipelineContext<Unit, ApplicationCall>.fetchEndringslogger(
     withImages: Boolean,
 ) {
     val (userId, appId, dataset, maxEntries) = call.receive<BrukerData>()
+    val queryString = lagEndringsloggQueryString(appId, dataset, maxEntries, visUpubliserte = erIDev())
     val seenEntryIds = getSeenEntriesForUser(userId).map(UUID::toString).toSet()
     val seenForcedEntryIds = getSeenForcedEntriesForUser(userId).map(UUID::toString).toSet()
 
-    val alleMeldingerQuery = "*[_type=='$appId']|order(_createdAt desc)[0...$maxEntries]"
-    val publiserteMedlingerQuery = "*[_type=='$appId']|[publisert]|order(_createdAt desc)[0...$maxEntries]"
-
-    val query = if (erIDev()) alleMeldingerQuery else publiserteMedlingerQuery
-
-    val queryStringEncoded = URLEncoder.encode(query, "utf-8")
-
-    when (val endringslogger = client.query(queryStringEncoded, dataset, withImages)) {
+    when (val endringslogger = client.query(queryString, dataset, withImages)) {
         is Ok -> {
             if (endringslogger.value.result.isEmpty()) {
                 call.response.status(HttpStatusCode(204, "Data for app $appId doesn't exist."))

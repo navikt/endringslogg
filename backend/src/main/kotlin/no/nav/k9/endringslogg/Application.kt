@@ -14,7 +14,9 @@ import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.server.plugins.cors.routing.CORS
 import kotlinx.serialization.json.Json
 import no.nav.k9.endringslogg.env.DB_JDBC_URL
+import no.nav.k9.endringslogg.env.SANITY_API_VERSION
 import no.nav.k9.endringslogg.env.SANITY_PROJECT_ID
+import no.nav.k9.endringslogg.env.SANITY_TOKEN
 import no.nav.k9.endringslogg.plugins.configureLogging
 import no.nav.k9.endringslogg.plugins.configureRouting
 import no.nav.k9.endringslogg.plugins.errorHandling
@@ -67,7 +69,10 @@ fun main() {
         ).load()
     flyway.migrate()
 
-    val client = SanityClient(SANITY_PROJECT_ID, "v1")
+    if (SANITY_TOKEN == null) {
+        logger.warn("SANITY_TOKEN mangler. Spørringer mot Sanity sendes uten token og virker bare mot offentlige datasett.")
+    }
+    val client = SanityClient(SANITY_PROJECT_ID, SANITY_API_VERSION, SANITY_TOKEN)
 
     connectToDatabase()
 
