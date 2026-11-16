@@ -30,6 +30,7 @@ repositories {
 }
 
 dependencies {
+    implementation(platform("io.netty:netty-bom:4.1.140.Final"))
     ktlint("com.pinterest:ktlint:0.51.0-FINAL") {
         attributes {
             attribute(Bundling.BUNDLING_ATTRIBUTE, objects.named(Bundling.EXTERNAL))
