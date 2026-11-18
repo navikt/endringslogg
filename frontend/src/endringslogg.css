@@ -4,8 +4,15 @@
   margin-right: 1.25rem;
 }
 
+.endringslogg,
+.endringslogg *,
+.endringslogg *::before,
+.endringslogg *::after {
+  box-sizing: border-box;
+}
+
 .collapse-header {
-  background-color: var(--a-surface-inverted);;
+  background-color: var(--ax-bg-neutral-strong);
   color: white;
   padding: 1rem;
   border-top-left-radius: 6px;
@@ -71,11 +78,13 @@
   height: 0;
   border-left: 0.8125rem solid transparent;
   border-right: 0.8125rem solid transparent;
-  border-bottom: 0.6875rem solid var(--a-surface-inverted);;
+  border-bottom: 0.6875rem solid var(--ax-bg-neutral-strong);
 }
 
 .innhold-container {
   overflow-y: scroll;
+  overflow-x: hidden;
+  overflow-wrap: anywhere;
   max-height: 30rem;
 }
 
@@ -95,7 +104,7 @@
   height: 0;
   border-left: 0.8125rem solid transparent;
   border-right: 0.8125rem solid transparent;
-  border-bottom: 0.6875rem solid var(--a-surface-inverted);;
+  border-bottom: 0.6875rem solid var(--ax-bg-neutral-strong);
 }
 
 .arrow-container-left:focus-within::before {
