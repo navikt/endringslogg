@@ -2832,6 +2832,7 @@ __metadata:
     vite: "npm:8.3.5"
   peerDependencies:
     "@navikt/aksel-icons": 8.x
+    "@navikt/ds-css": 8.x
     "@navikt/ds-react": 8.x
     "@types/react": 18.x || 19.x
     react: 18.x || 19.x
