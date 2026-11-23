@@ -2,9 +2,9 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 val ktor_version = "2.3.13"
 val kotlin_version="2.4.21"
-val logback_version="1.6.6"
+val logback_version="1.6.7"
 val logstash_encoder_version="9.0"
-val exposed_version="1.6.0"
+val exposed_version="1.6.1"
 val hikaricp_version = "7.1.0"
 val ktlint by configurations.creating
 
@@ -13,7 +13,7 @@ plugins {
     kotlin("jvm") version "2.4.21"
     kotlin("plugin.serialization") version "2.4.21"
     id("com.gradleup.shadow") version "9.6.1"
-    id("org.cyclonedx.bom") version "3.5.1"
+    id("org.cyclonedx.bom") version "3.6.1"
 }
 
 group = "no.nav.k9.endringslogg"
@@ -30,7 +30,7 @@ repositories {
 }
 
 dependencies {
-    implementation(platform("io.netty:netty-bom:4.1.140.Final"))
+    implementation(platform("io.netty:netty-bom:4.2.20.Final"))
     ktlint("com.pinterest:ktlint:0.51.0-FINAL") {
         attributes {
             attribute(Bundling.BUNDLING_ATTRIBUTE, objects.named(Bundling.EXTERNAL))
@@ -54,9 +54,9 @@ dependencies {
     implementation("org.jetbrains.exposed:exposed-java-time:$exposed_version")
     implementation("com.zaxxer:HikariCP:$hikaricp_version")
     implementation("org.postgresql:postgresql:42.7.14")
-    implementation("com.google.cloud.sql:postgres-socket-factory:1.30.2")
-    implementation("org.flywaydb:flyway-core:13.12.1")
-    implementation("org.flywaydb:flyway-database-postgresql:13.12.1")
+    implementation("com.google.cloud.sql:postgres-socket-factory:1.31.0")
+    implementation("org.flywaydb:flyway-core:13.12.2")
+    implementation("org.flywaydb:flyway-database-postgresql:13.12.2")
     implementation("com.github.ben-manes.caffeine:caffeine:3.3.1")
     implementation("com.launchdarkly:okhttp-eventsource:6.0.0")
     testImplementation("io.ktor:ktor-server-tests:$ktor_version")
